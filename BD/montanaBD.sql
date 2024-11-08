@@ -1,6 +1,6 @@
 -- Crear base de datos (opcional)
-CREATE DATABASE IF NOT EXISTS mi_tienda;
-USE mi_tienda;
+CREATE DATABASE IF NOT EXISTS montana;
+USE montana;
 
 -- Tabla Cliente
 CREATE TABLE usuarios (
