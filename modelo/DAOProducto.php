@@ -9,7 +9,7 @@
             $this->conn = Singleton::getConn();
         }
 
-        public function getProductoById($id){
+        public function selectProductoById($id){
             $stmt = $this->conn->prepare("SELECT * FROM productos WHERE id = :id");
             $stmt->bind_param(":id", $id);
             $stmt->execute();
@@ -24,7 +24,7 @@
             }
         }
 
-        public function getAllProductos(){
+        public function selectAllProductos(){
             $stmt = $this->conn->prepare('SELECT * FROM productos WHERE id = :id');
             $stmt->execute();
             $fila = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -38,8 +38,31 @@
             return $productos;
         }
 
-        public function addProducto($producto){
-            
+        public function insertProducto($producto){
+            $stmt = $this->conn->prepare('INSERT INTO productos (nombre, descripcion, precio, imagen, stock) VALUES (:nombre, :descripcion, :precio, :imagen, :stock)');
+            $stmt->bind_param(':nombre', $producto->getNombre());
+            $stmt->bind_param(':descripcion', $producto->getDescripcion());
+            $stmt->bind_param(':precio', $producto->getPrecio());
+            $stmt->bind_param(':imagen', $producto->getImagen());
+            $stmt->bind_param(':stock', $producto->getStock());
+            return $stmt->execute();
+        }
+
+        public function updateProducto($producto){
+            $stmt= $this->conn->prepare('UPDATE productos SET id =:id, nombre = :nombre, descripcion = :descripcion, precio = :precio, imagen = :imagen, stock = :stock WHERE id = :id');
+            $stmt->bind_param(':id', $producto->getId());
+            $stmt->bind_param(':nombre', $producto->getNombre());
+            $stmt->bind_param(':descripcion', $producto->getDescripcion());
+            $stmt->bind_param(':precio', $producto->getPrecio());
+            $stmt->bind_param(':imagen', $producto->getImagen());
+            $stmt->bind_param(':stock', $producto->getStock());
+            return $stmt->execute();
+        }
+
+        public function deleteProducto($id){
+            $stmt= $this->conn->prepare('DELETE FROM productos WHERE id = :id');
+            $stmt->bind_param(':id', $id);
+            return $stmt->execute();
         }
 }
 ?>
