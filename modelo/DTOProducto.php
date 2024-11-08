@@ -10,11 +10,12 @@
 
 
         public function __construct($nombre, $descripcion, $precio, $imagen, $stock){
-        $this->$nombre=$nombre;
-        $this->descripcion=$descripcion;
-        $this->precio=$precio;
-        $this->imagen=$imagen;
-        $this->stock=$stock;
+            $this->id = null;
+            $this->$nombre=$nombre;
+            $this->descripcion=$descripcion;
+            $this->precio=$precio;
+            $this->imagen=$imagen;
+            $this->stock=$stock;
     }
 
     public function getId(){
@@ -27,6 +28,10 @@
 
     public function getDescripcion(){
         return $this->descripcion;
+    }
+
+    public function getprecio(){
+        return $this->precio;
     }
 
     public function getImagen(){
