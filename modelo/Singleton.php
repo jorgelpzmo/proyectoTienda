@@ -1,13 +1,22 @@
 <?php 
 	class Singleton {
 		private static $host = "localhost";
-		private static $DB = "";
+		private static $DB = "montana";
 		private static $user = "root";
-		private static $pass;
-		private static $conexion;
+		private static $pass = "";
+		private static $con = null;
 		
-		public function __construct() {
-			self::$conexion = ;
+		public static function getCon() {
+			if (self::$con === null) {
+				try {
+					self::$con = new PDO("mysql:host=". self::$host .";dbname=". self::$DB, self::$user, self::$pass);
+					self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+					echo "Connection Success!\n";
+				} catch (PDOException $e) {
+					echo "Connection Failed: ". $e->getMessage();
+				}
+			}
+			return self::$con;
 		}
 	}
 ?>
