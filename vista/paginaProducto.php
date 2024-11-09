@@ -14,7 +14,15 @@
 	<title>montana</title>
 </head>
 <body>
-	<?php 
+	<header>
+		<section id="logo"><a href="index.php">logo</a></section>
+		<section id="inicio"><a href="index.php">inicio</a></section>
+		<section id="carrito"><a href="carrito.php">carrito</a></section>
+		<section id="user"><a href="usuario.php"></a></section>
+		<section id="trastienda"><a href="menuTrastienda.php">trastienda</a></section>
+	</header>
+	<div id="producto">
+	<?php
 		echo "<p>$id</p>";
 		echo "<p>$nombre</p>";
 		echo "<p>$descripcion</p>";
@@ -22,5 +30,17 @@
 		echo "<p>$imagen</p>";
 		echo "<p>$stock</p>";
 	?>
+	<figure></figure>
+	
+	</div>
+	
+	<footer>
+		<section id="social">
+
+		</section>
+		<section id="foot_info">
+
+		</section>
+	</footer>
 </body>
 </html>
