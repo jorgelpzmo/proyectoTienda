@@ -34,6 +34,11 @@ $productos = $control_producto->getAllProductos();
                     <td><?=$producto->getPrecio();?></td>
                     <td style="width: 20%; height:50%"><img src="<?=$producto->getImagen();?>" alt="<?=$producto->getNombre();?>" style="width: 100%; height:100%"></td>
                     <td><?=$producto->getStock();?></td>
+                    <td>
+                        <form action="../controlador/controlEliminarTrastienda.php" method="post">
+                        <button type="submmit" name="action" value="<?= $producto->getId()?>">Eliminar</button>
+                        </form>
+                    </td>
                 </tr>
             <?php endforeach;?>
         </tbody>
