@@ -1,3 +1,9 @@
+<?php
+	require '../controlador/ControlProducto.php';
+
+	$control_producto = new ControlProducto();
+	$productos = $control_producto->getAllProductos();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +11,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>montana</title>
 </head>
-<?php
-	$productos = $_REQUEST['productos'];
-?>
 <body>
 	<header>
 		<section id="logo"><a href="index.php">logo</a></section>
@@ -25,9 +28,9 @@
 			<section id="sprays">
 				<h3>Productos</h3>
 				<div>
-					<form action="producto.php" method="post">
+					<form action="../controlador/ControlPaginaProducto.php" method="post">
 					<?php foreach ($productos as $producto): ?>
-					<input type="submit" name="producto" value="<?= $producto->getId(); ?>"> <? $producto->getNombre(); ?> </input>
+					<input type="submit" name="producto" value="<?= $producto->getId(); ?>"> <?= $producto->getNombre(); ?> </input>
 					<?php endforeach; ?>
 					</form>
 				</div>
