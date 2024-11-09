@@ -50,6 +50,7 @@
 
         public function updateProducto($producto){
             $stmt= $this->conn->prepare('UPDATE productos SET nombre = :nombre, descripcion = :descripcion, precio = :precio, imagen = :imagen, stock = :stock WHERE id = :id');
+            $stmt->bindParam(':id', $producto->getId());
             $stmt->bindParam(':nombre', $producto->getNombre());
             $stmt->bindParam(':descripcion', $producto->getDescripcion());
             $stmt->bindParam(':precio', $producto->getPrecio());

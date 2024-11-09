@@ -17,7 +17,7 @@
 		}
 
 		public function nuevoProducto($Producto) {
-			$this->DAOProducto->insertProducto($Producto);
+			return $this->DAOProducto->insertProducto($Producto);
 		}
 	
 		public function borrarProducto($id) {
@@ -31,7 +31,7 @@
 		}
 	
 		public function actualizarProducto($Producto) {
-			$this->DAOProducto->updateProducto($Producto);
+			return $this->DAOProducto->updateProducto($Producto);
 		}
 	}
 ?>

@@ -36,7 +36,10 @@ $productos = $control_producto->getAllProductos();
                     <td><?=$producto->getStock();?></td>
                     <td>
                         <form action="../controlador/controlEliminarTrastienda.php" method="post">
-                        <button type="submmit" name="action" value="<?= $producto->getId()?>">Eliminar</button>
+                        <button type="submit" name="eliminar" value="<?= $producto->getId()?>">Eliminar</button>
+                        </form>
+                        <form action ="../controlador/peticionEditarTrastienda.php" method="post">
+                            <button type="submit" name="editar" value="<?= $producto->getId()?>">Editar</button>
                         </form>
                     </td>
                 </tr>
