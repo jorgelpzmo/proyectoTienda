@@ -13,6 +13,9 @@ $productos = $control_producto->getAllProductos();
     <title>Document</title>
 </head>
 <body>
+    <form action="../controlador/peticionAnadirTrastienda.php" method="post">
+        <button type="submit" name="action" value="anadir">Añadir nuevo producto</button>
+    </form>
     <table>
     <table border="1">
         <thead>

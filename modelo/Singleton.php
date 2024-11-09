@@ -11,7 +11,6 @@
 				try {
 					self::$con = new PDO("mysql:host=". self::$host .";dbname=". self::$DB, self::$user, self::$pass);
 					self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-					echo "Connection Success!\n";
 				} catch (PDOException $e) {
 					echo "Connection Failed: ". $e->getMessage();
 				}
