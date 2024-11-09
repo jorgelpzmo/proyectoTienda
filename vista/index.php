@@ -28,7 +28,7 @@
 			<section id="sprays">
 				<h3>Productos</h3>
 				<div>
-					<form action="../controlador/ControlPaginaProducto.php" method="post">
+					<form action="../controlador/controlIndex.php" method="post">
 					<?php foreach ($productos as $producto): ?>
 					<input type="submit" name="producto" value="<?= $producto->getId(); ?>"> <?= $producto->getNombre(); ?> </input>
 					<?php endforeach; ?>

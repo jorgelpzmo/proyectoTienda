@@ -31,7 +31,16 @@
 		echo "<p>$stock</p>";
 	?>
 	<figure></figure>
-	
+	<section>
+		<h2><?= $nombre ?></h2>
+		<p><?= $descripcion ?></p>
+		<h2><?= $precio ?></h2>
+		<form action="../controlador/controlPaginaProducto.php" method="post">
+			<label for="cantidad">cantidad<input type="number" name="cantidad">
+			<input type="hidden" name="id_producto" value="<?= $id ?>">
+			<input type="submit" value="añadir al carrito">
+		</form>
+	</section>
 	</div>
 	
 	<footer>

@@ -12,6 +12,6 @@
 	$imagen = $producto->getImagen();
 	$stock = $producto->getStock();
 
-	header("Location:../vista/paginaProducto.php?id=$id&nombre=$nombre&descripcion=$descripcion&imagen=$imagen&stock=stock");
+	header("Location:../vista/paginaProducto.php?id=$id&nombre=$nombre&descripcion=$descripcion&precio=$precio&imagen=$imagen&stock=$stock");
 	exit;
 ?>
