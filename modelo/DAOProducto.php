@@ -25,12 +25,12 @@
         }
 
         public function selectAllProductos(){
-            $stmt = $this->conn->prepare('SELECT * FROM productos WHERE id = :id');
+            $stmt = $this->conn->prepare('SELECT * FROM productos');
             $stmt->execute();
-            $fila = $stmt->fetch(PDO::FETCH_ASSOC);
+            $filas = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
             $productos = [];
-            foreach($fila as $resultado){
+            foreach($filas as $resultado){
                 $DTOProducto=new DTOProducto($resultado['nombre'], $resultado['descripcion'], $resultado['precio'], $resultado['imagen'], $resultado['stock']);
                 $DTOProducto->setId( $resultado['id'] );
                 $productos[] = $DTOProducto;
@@ -49,8 +49,7 @@
         }
 
         public function updateProducto($producto){
-            $stmt= $this->conn->prepare('UPDATE productos SET id =:id, nombre = :nombre, descripcion = :descripcion, precio = :precio, imagen = :imagen, stock = :stock WHERE id = :id');
-            $stmt->bindParam(':id', $producto->getId());
+            $stmt= $this->conn->prepare('UPDATE productos SET nombre = :nombre, descripcion = :descripcion, precio = :precio, imagen = :imagen, stock = :stock WHERE id = :id');
             $stmt->bindParam(':nombre', $producto->getNombre());
             $stmt->bindParam(':descripcion', $producto->getDescripcion());
             $stmt->bindParam(':precio', $producto->getPrecio());

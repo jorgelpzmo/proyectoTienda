@@ -11,7 +11,7 @@
 
         public function __construct($nombre, $descripcion, $precio, $imagen, $stock){
             $this->id = null;
-            $this->$nombre=$nombre;
+            $this->nombre=$nombre;
             $this->descripcion=$descripcion;
             $this->precio=$precio;
             $this->imagen=$imagen;
@@ -30,7 +30,7 @@
         return $this->descripcion;
     }
 
-    public function getprecio(){
+    public function getPrecio(){
         return $this->precio;
     }
 
