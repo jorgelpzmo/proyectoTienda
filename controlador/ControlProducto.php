@@ -1,4 +1,5 @@
-<?php 
+<?php
+	require '../modelo/DAOProducto.php';
 	class ControlProducto {
 
 		private $DAOProducto;
@@ -16,7 +17,7 @@
 		}
 
 		public function nuevoProducto($Producto) {
-				$this->DAOProducto->insertProducto($Producto);
+			$this->DAOProducto->insertProducto($Producto);
 		}
 	
 		public function borrarProducto($id) {
