@@ -23,16 +23,18 @@
 	</header>
 	<div id="carrito">
 		<?php for ($i = 0; $i < count($_SESSION['productos']); $i++):?>
-			<?php $total += $_SESSION['productos'][$i]->getPrecio() * $_SESSION['cantidad'][$i] ?>
+			<?php $total += $_SESSION['productos'][$i]->getPrecio() * $_SESSION['cantidades'][$i] ?>
 			<article>
 				<img src="" alt="">
 				<div>
-					<p><?= $_SESSION['productos'][$i]->getNombre() . " " . $_SESSION['cantidad'][$i] . " " . $_SESSION['productos'][$i]->getPrecio()?></p>
+					<p><?= $_SESSION['productos'][$i]->getNombre() . " " . $_SESSION['cantidades'][$i] . " " . $_SESSION['productos'][$i]->getPrecio()?></p>
 				</div>
 			</article>
 		<?php endfor; ?>
 		<h2><?= "TOTAL: " . $total ?></h2>
-		<input type="">
+		<form action="../controlador/controlCarrito.php" method="dialog">
+			<input type="submit" value="comprar" name="comprar">
+		</form>
 	</div>
 	<footer>
 		<section id="social">

@@ -33,5 +33,12 @@
 		public function actualizarProducto($Producto) {
 			return $this->DAOProducto->updateProducto($Producto);
 		}
+
+		public function actualizarStock($producto, $cantidad) {
+			$stock = $producto->getStock();
+			$stock -= $cantidad;
+			$producto->setStock($stock);
+			return $this->DAOProducto->updateStock($producto);
+		}
 	}
 ?>

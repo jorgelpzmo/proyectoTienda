@@ -28,7 +28,7 @@ CREATE TABLE productos (
 CREATE TABLE compras (
     usuario_id INT NOT NULL,
     producto_id INT NOT NULL,
-    fecha_compra DATE NOT NULL,
+    fecha_compra DATETIME NOT NULL,
     id INT NOT NULL,
     cantidad INT DEFAULT 1,
 

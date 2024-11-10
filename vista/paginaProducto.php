@@ -36,8 +36,8 @@
 		<p><?= $descripcion ?></p>
 		<h2><?= $precio ?></h2>
 		<form action="../controlador/controlPaginaProducto.php" method="post">
-			<label for="cantidad">cantidad<input type="number" name="cantidad">
-			<input type="hidden" name="id_producto" value="<?= $id ?>">
+			<label for="cantidad">cantidad<input type="number" name="cantidad" min=1 value=1>
+			<input type="hidden" name="producto_id" value="<?= $id ?>">
 			<input type="submit" value="añadir al carrito">
 		</form>
 	</section>

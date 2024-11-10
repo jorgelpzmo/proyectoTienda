@@ -16,8 +16,8 @@
 			return $this->DAOCompra->selectAll();
 		}
 
-		public function nuevoCompra($Compra) {
-			return $this->DAOCompra->insertCompra($Compra);
+		public function nuevaCompra($compra) {
+			return $this->DAOCompra->insertCompra($compra);
 		}
 	
 		public function borrarCompra($id) {
@@ -30,8 +30,8 @@
 			}
 		}
 	
-		public function actualizarCompra($Compra) {
-			return $this->DAOCompra->updateCompra($Compra);
+		public function actualizarCompra($compra) {
+			return $this->DAOCompra->updateCompra($compra);
 		}
 	}
 ?>

@@ -59,6 +59,13 @@
             return $stmt->execute();
         }
 
+        public function updateStock($producto) {
+            $pd = $this->conn->prepare("UPDATE productos SET stock = :stock WHERE id = :id");
+            $pd->bindParam(":stock", $producto->getStock());
+            $pd->bindParam(":id", $producto->getId());
+            return $pd->execute();
+        }
+
         public function deleteProducto($id){
             $stmt= $this->conn->prepare('DELETE FROM productos WHERE id = :id');
             $stmt->bindParam(':id', $id);
