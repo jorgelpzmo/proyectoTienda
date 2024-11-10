@@ -3,7 +3,8 @@
 require 'Singleton.php';
 require 'DTOusuario.php';
 
-class DAOusuario {
+class DAOusuario
+{
     private $conn;
 
     /**
@@ -14,7 +15,8 @@ class DAOusuario {
         $this->conn = Singleton::getCon();
     }
 
-    public function selectUsuario($id) {
+    public function selectUsuario($id)
+    {
         $stmt = $this->conn->prepare("SELECT * FROM usuarios WHERE id = :id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
@@ -53,21 +55,26 @@ class DAOusuario {
         $stmt->execute();
         $resultSet = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $usuarios = [];
-        foreach ($resultSet as $fila) {
-            $usuario = new DTOusuario(
-                $fila['id'],
-                $fila['nombre'],
-                $fila['apellido'],
-                $fila['nickname'],
-                $fila['password'],
-                $fila['telefono'],
-                $fila['domicilio']
-            );
-            array_push($usuarios, $usuario);
-            //$usuarios[] = $usuario; Esta sería otra forma de añadir un elemento en la última posición del array.
+        if ($resultSet) {
+            $usuarios = [];
+            foreach ($resultSet as $usuario) {
+                $usuarios[] = new DTOusuario(
+                    $usuario['id'],
+                    $usuario['nombre'],
+                    $usuario['apellido'],
+                    $usuario['nickname'],
+                    $usuario['password'],
+                    $usuario['telefono'],
+                    $usuario['domicilio']
+                );
+            }
+            return $usuarios;
+        } else {
+            return null;
         }
+
     }
+
     /*
  * CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -79,7 +86,8 @@ class DAOusuario {
     domicilio VARCHAR(100)
 );*/
 
-    public function insertUsuario($usuario) {
+    public function insertUsuario($usuario)
+    {
         $stmt = $this->conn->prepare("INSERT INTO usuarios 
         (nombre, apellido, nickname, password, telefono, domicilio) 
         VALUES (:nombre, :apellido, :nickname, :password, :telefono, :domicilio)");
@@ -94,17 +102,18 @@ class DAOusuario {
         return $stmt->execute(); //Este return devuelve un true si la consulta se ejecutó o un false si la consulta no se ejecutó.
     }
 
-/* CREATE TABLE usuarios (
-id INT AUTO_INCREMENT PRIMARY KEY,
-nombre VARCHAR(50) NOT NULL,
-apellido VARCHAR(50) NOT NULL,
-nickname VARCHAR(50) UNIQUE NOT NULL,
-password VARCHAR(255) NOT NULL,
-telefono VARCHAR(15),
-domicilio VARCHAR(100)
-);*/
+    /* CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    nickname VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    telefono VARCHAR(15),
+    domicilio VARCHAR(100)
+    );*/
 
-    public function updateUsuario($usuario) {
+    public function updateUsuario($usuario)
+    {
         $stmt = $this->conn->prepare("UPDATE usuarios SET 
                     nombre = :nombre, 
                     apellido = :apellido,
@@ -130,6 +139,15 @@ domicilio VARCHAR(100)
 
         return $stmt->execute();
 
+    }
+
+    public function comprabarUsuario($nickname, $password) {
+        $stmt = $this->conn->prepare("SELECT * FROM usuarios WHERE nickname = :nickname and password = :password");
+        $stmt->bindParam(':nickname', $nickname);
+        $stmt->bindParam(':password', $password);
+
+        $stmt->execute();
+        return $stmt->rowCount();
     }
 }
 

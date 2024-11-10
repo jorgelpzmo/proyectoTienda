@@ -54,3 +54,8 @@ INSERT INTO productos (nombre, descripcion, precio, imagen, stock) VALUES
     ("HANDSTYLE SWEATSHIRT", "Sudadera con Logo tipo hanstyle", 58.65, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/mtn-sudadera-handstyle156.jpg",  150),
     ("HARDCORE 25TH SWEATSHIRT", "Sudadera edición limitada 25 aniversario", 78.65, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/montana-colors-spray-pintura-sudadera-hardcore673.jpg",  25),
     ("WALKING LOGO T-SHIRT", "Camiseta con Walking Logo", 29.00, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/mtnwalkinglogo943.jpg",  350);
+-- Usuarios:
+INSERT INTO usuarios (nombre, apellido, nickname, password, telefono, domicilio) VALUES
+    ("Fabio", "Rama", "Fabio7", "Contrasena7", "777777777", "Gran via"),
+    ("Jorge", "YouKnow", "Jorge8", "Contrasena8", "888888888", "Callao"),
+    ("Nico", "Buquet", "Nico9", "Contrasena9", "999999999", "Atocha");
