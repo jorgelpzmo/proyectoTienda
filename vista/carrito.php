@@ -32,8 +32,9 @@
 			</article>
 		<?php endfor; ?>
 		<h2><?= "TOTAL: " . $total ?></h2>
-		<form action="../controlador/controlCarrito.php" method="dialog">
-			<input type="submit" value="comprar" name="comprar">
+		<form action="../controlador/controlCarrito.php" method="post">
+			<input type="submit" name="action" value="comprar">
+			<input type="submit" name="action" value="borrar">
 		</form>
 	</div>
 	<footer>

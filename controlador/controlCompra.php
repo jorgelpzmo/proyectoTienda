@@ -1,5 +1,6 @@
 <?php 
 	require '../modelo/DAOCompra.php';
+	
 	class ControlCompra {
 
 		private $DAOCompra;
@@ -29,7 +30,7 @@
 				return -1;
 			}
 		}
-	
+
 		public function actualizarCompra($compra) {
 			return $this->DAOCompra->updateCompra($compra);
 		}

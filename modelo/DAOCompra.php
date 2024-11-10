@@ -1,4 +1,6 @@
 <?php
+	require 'DTOCompra.php';
+	
 	class DAOCompra {
 		private $con;
 
