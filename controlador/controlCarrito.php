@@ -11,12 +11,12 @@
 	
 	session_name('carrito');
 	session_start();
+
 	if ($_REQUEST['action'] == 'comprar') {
 		if (isset($_SESSION['productos']) && isset($_SESSION['cantidades'])) {
 			$productos = $_SESSION['productos'];
 			$cantidades = $_SESSION['cantidades'];
 		}
-		unset($_SESSION['productos'], $_SESSION['cantidades']);
 
 		if (!isset($_SESSION['id']))
 			$_SESSION['id'] = 1;
@@ -34,9 +34,12 @@
 			$control_compra->nuevaCompra($compra);
 			$control_producto->actualizarStock($productos[$i], $cantidad);
 		}
-	} else
-		unset($_SESSION['productos'], $_SESSION['cantidades']);
+		header("Location:../vista/ticket.php");
+		exit;
 
-	header("Location:../vista/carrito.php");
-	exit;
+	} else {
+		unset($_SESSION['productos'], $_SESSION['cantidades']);
+		header("Location:../vista/carrito.php");
+		exit;
+	}	
 ?>

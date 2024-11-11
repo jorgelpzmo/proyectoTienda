@@ -1,10 +1,7 @@
 <?php 
 	require '../modelo/DTOProducto.php';
-	
 	session_name('carrito');
 	session_start();
-	//session_unset();
-	//$total = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +18,8 @@
 		<section id="user"><a href="usuario.php">usuario</a></section>
 		<section id="trastienda"><a href="menuTrastienda.php">trastienda</a></section>
 	</header>
-	<div id="carrito">
+	<div id="ticket">
+		<h4><?= $_SESSION['id'] ?></h4>
 		<?php for ($i = 0; $i < count($_SESSION['productos']); $i++):?>
 			<article>
 				<img src="" alt="">
@@ -31,10 +29,8 @@
 			</article>
 		<?php endfor; ?>
 		<h2><?= "TOTAL: " . $_SESSION['total'] ?></h2>
-		<form action="../controlador/controlCarrito.php" method="post">
-			<input type="submit" name="action" value="comprar">
-			<input type="submit" name="action" value="borrar">
-		</form>
+		<?php unset($_SESSION['productos'], $_SESSION['cantidades']); ?>
+		<a href="index.php">inicio</a>
 	</div>
 	<footer>
 		<section id="social">
@@ -45,4 +41,5 @@
 		</section>
 	</footer>
 </body>
+</html>
 </html>

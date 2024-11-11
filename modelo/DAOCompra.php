@@ -1,5 +1,5 @@
 <?php
-	require 'Singleton';
+	require 'Singleton.php';
 	require 'DTOCompra.php';
 	
 	class DAOCompra {

@@ -5,6 +5,8 @@
 	$precio = $_REQUEST['precio'];
 	$imagen = $_REQUEST['imagen'];
 	$stock = $_REQUEST['stock'];
+	if (isset($_REQUEST['aviso_stock']))
+		$aviso_stock = $_REQUEST['aviso_stock'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,14 +24,6 @@
 		<section id="trastienda"><a href="menuTrastienda.php">trastienda</a></section>
 	</header>
 	<div id="producto">
-	<?php
-		echo "<p>$id</p>";
-		echo "<p>$nombre</p>";
-		echo "<p>$descripcion</p>";
-		echo "<p>$precio</p>";
-		echo "<p>$imagen</p>";
-		echo "<p>$stock</p>";
-	?>
 	<figure></figure>
 	<section>
 		<h2><?= $nombre ?></h2>
@@ -37,6 +31,7 @@
 		<h2><?= $precio ?></h2>
 		<form action="../controlador/controlPaginaProducto.php" method="post">
 			<label for="cantidad">cantidad<input type="number" name="cantidad" min=1 value=1>
+			<aviso><?= $aviso_stock; ?></aviso>
 			<input type="hidden" name="producto_id" value="<?= $id ?>">
 			<input type="submit" value="añadir al carrito">
 		</form>

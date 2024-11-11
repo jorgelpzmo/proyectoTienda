@@ -24,9 +24,9 @@
 
 		</div>
 		<div id="items">
-			<h4></h4>
+			<h4>Montana Colors Products</h4>
 			<section id="sprays">
-				<h3>Productos</h3>
+				<h3>Shop</h3>
 				<div>
 					<form action="../controlador/controlIndex.php" method="post">
 					<?php foreach ($productos as $producto): ?>
