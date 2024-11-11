@@ -32,10 +32,17 @@
                 return -1;
             }
         }
-
         public function comprobarUsuario($nickname, $password) {
-            return $this->DAOUsuario->comprabarUsuario($nickname, $password); //Esto devuleve también el
-            // número de filas del registro
+            return $this->DAOUsuario->comprabarUsuario($nickname, $password);
+        }
+
+        public function comprobarNickname($nickname) {
+            return $this->DAOUsuario->comprobarNickname($nickname);
+        }
+
+        public function comprobarPassword($password) {
+            return $this->DAOUsuario->comprobarPassword($password);
+
         }
     }
 ?>

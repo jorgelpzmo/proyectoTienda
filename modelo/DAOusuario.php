@@ -141,15 +141,52 @@ class DAOusuario
 
     }
 
-    public function comprabarUsuario($nickname, $password) {
+    public function comprabarUsuario($nickname, $password) { //Los select tienen que devolver USUARIOS
         $stmt = $this->conn->prepare("SELECT * FROM usuarios WHERE nickname = :nickname and password = :password");
         $stmt->bindParam(':nickname', $nickname);
         $stmt->bindParam(':password', $password);
 
         $stmt->execute();
-        
+
+        $usuario = null;
+        $fila = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($fila) {
+            $usuario = new DTOusuario(
+                $usuario['id'],
+                $usuario['nombre'],
+                $usuario['apellido'],
+                $usuario['nickname'],
+                $usuario['password'],
+                $usuario['telefono'],
+                $usuario['domicilio']);
+            return $usuario;
+        } else {
+            return $usuario;
+        }
+        //return $stmt->rowCount();
+    }
+
+    public function comprobarNickname($nickname) {
+        $stmt = $this->conn->prepare("SELECT * FROM usuarios WHERE nickname = :nickname");
+        $stmt->bindParam(':nickname', $nickname);
+
+        $stmt->execute();
+
         return $stmt->rowCount();
     }
+
+    public function comprobarPassword($password) {
+        $stmt = $this->conn->prepare("SELECT * FROM usuarios WHERE password = :password");
+        $stmt->bindParam(':password', $password);
+
+        $stmt->execute();
+
+        return $stmt->rowCount(); //Numero de filas que devuelve.
+
+
+    }
+
+
 }
 
 ?>
