@@ -16,6 +16,7 @@ if ($usuario) {
     $_SESSION['password'];
     $_SESSION['id'];
     header("location:../vista/index.php");
+    //unset($_SESSION[''nickname]...)
     exit;
 } else {
     $aviso = "ERROR: no existe el usuario";
