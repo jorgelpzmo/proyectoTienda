@@ -17,7 +17,7 @@
 		<section id="inicio"><a href="index.php">inicio</a></section>
 		<section id="carrito"><a href="carrito.php">carrito</a></section>
 		<section id="user"><a href="usuario.php">usuario</a></section>
-		<section id="trastienda"><a href="menuTrastienda.php">trastienda</a></section>
+		<section id="trastienda"><a href="vistaMostrarTrastienda.php">trastienda</a></section>
 	</header>
 	<div id="main">
 		<div id="slide">
