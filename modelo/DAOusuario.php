@@ -147,6 +147,7 @@ class DAOusuario
         $stmt->bindParam(':password', $password);
 
         $stmt->execute();
+        
         return $stmt->rowCount();
     }
 }

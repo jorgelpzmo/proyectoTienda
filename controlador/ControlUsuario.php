@@ -25,7 +25,7 @@
         }
 
         public function borrarUsuario($id) {
-            if (self::getUsuario()) {
+            if (self::getUsuario($id)) {
                 $this->DAOUsuario->deleteUsuario($id);
                 return 1;
             } else {

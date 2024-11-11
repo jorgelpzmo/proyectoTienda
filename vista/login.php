@@ -8,7 +8,12 @@
 </head>
 <body>
 <h1>Inicio de Sesión</h1>
-
+<?php
+    $aviso = "";
+    if (isset($_REQUEST['aviso'])) {
+        $aviso = $_REQUEST['aviso'];
+    }
+?>
 <form action="../controlador/controlLogin.php" method="post"> <!--Revisar el form action porque no es ese archivo.-->
     <label>Introduce tu usuario:</label>
     <input type="text" id="loginUsuario" name="loginUsuario" required><br> <!--Con el required obligas
@@ -21,6 +26,6 @@
     <input type="submit" value="Iniciar sesión">
 </form>
 <!--<button type="button" onclick="location.href='registro.html'">Registrarse</button>-->
-<a href="registro.html">¡¿Quieres registrate?!, pincha aquí.</a>
+<a href="registro.html"><?= $aviso ?></a>
 </body>
 </html>
