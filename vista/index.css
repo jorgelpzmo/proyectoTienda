@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* KEYFRAMES */
+@keyframes slide {
+    0%      { left: 0%; }
+    24%     { left: 0%; }
+    25%     { left: -100%; }
+    49%     { left: -100%; }
+    50%     { left: -200%; }
+    74%     { left: -200%; }
+    75%     { left: -300%; }
+    99%     { left: -300%; }
+    100%    { left: 0%; }
+}
+
+@keyframes fade {
+    0%, 23.5%  { opacity: 1; }
+    24%, 25%   { opacity: 0; }
+    25.5%, 48.5% { opacity: 1; }
+    49%, 50%   { opacity: 0; }
+    50.5%, 73.5% { opacity: 1; }
+    74%, 75%   { opacity: 0; }
+    75.5%, 99% { opacity: 1; }
+    99.5%, 100% { opacity: 0; }
+}
+
+@keyframes fadeText {
+    0%, 22%       { opacity: 1; transform: translateX(0); }
+    23%, 24%      { opacity: 0; transform: translateX(-20px); }
+    25%, 48%      { opacity: 1; transform: translateX(0); }
+    49%, 50%      { opacity: 0; transform: translateX(-20px); }
+    51%, 73%      { opacity: 1; transform: translateX(0); }
+    74%, 75%      { opacity: 0; transform: translateX(-20px); }
+    76%, 99%      { opacity: 1; transform: translateX(0); }
+    100%          { opacity: 0; transform: translateX(-20px); }
+}
+
+@keyframes saltito {
+	0% 	 {transform: translate(0, 0);}
+	30%  {transform: translate(0, -15%);}
+	100% {transform: translate(0, 0);}
+}
+
+
+/* ATRIBUTOS GENERALES */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "PT Sans", sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* MODELO DE CAJAS */
+body {
+	width: 98.9vw;
+
+	display: flex;
+	flex-direction: column;
+}
+
+/* CABECERA */
+header {
+	width: 100%;
+	height: 9vh;
+
+	display: flex;
+	position: fixed;
+	top: 0;
+    left: 0;
+	z-index: 10;
+
+	border-bottom: 0.5px solid rgb(192, 192, 192);
+	background-color: white;
+}
+
+header section {
+	width: fit-content;
+	height: 100%;
+	padding: 25px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+header section:hover {
+	cursor: pointer;
+}
+
+header section a svg path{
+	transition: fill 0.2s ease;
+}
+
+header a {
+	color: black;
+	font-weight: bold;
+	font-size: medium;
+}
+
+#logo>a>img {
+	width: 100%;
+	height: 100%;
+
+	object-fit: contain;
+}
+
+#logo:hover {
+	animation: saltito 0.4s normal;
+}
+
+#user::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+	width: 100%;
+    height: 4px;
+    background-color: #f3ea2b;
+    opacity: 0;
+    transition: opacity 0.2s ease; /* Transición suave */
+}
+
+#user:hover::after {
+    opacity: 1;
+}
+
+#user:hover a svg path {
+	fill: #f3ea2b;
+}
+
+#carrito:hover a svg path {
+	fill: #59a4f4;
+}
+
+#carrito::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+	width: 100%;
+    height: 4px;
+    background-color: #59a4f4;
+    opacity: 0;
+    transition: opacity 0.2s ease; /* Transición suave */
+}
+
+#carrito:hover::after {
+    opacity: 1;
+}
+
+#trastienda {
+	margin-left: auto;
+}
+
+#trastienda:hover a {
+	color: #ea2c1d;
+	transition: color 0.2s ease;
+}
+
+#trastienda::after {
+	width: 100%;
+	height: 4px;
+
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	content: '';
+	background-color: #ea2c1d;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+#trastienda:hover::after {
+	opacity: 1;
+}
+
+/* CUERPO */
+#main {
+	width: 100%;
+	height: auto;
+
+	display: flex;
+	flex-direction: column;
+	
+	margin-top: 9vh;
+}
+
+#main  #slide {
+	width: 100%;
+	height: 93vh;
+	overflow: hidden;
+}
+
+#slide>div {
+	width: 400%;
+	height: 100%;
+
+	position: relative;
+
+	font-size: 0;
+	animation: 25s slide infinite ease-in-out, 25s fade infinite ease-in-out;
+}
+
+#slide>div figure {
+	width: 25%;
+	height: 100%;
+
+	display: inline-block;
+	position: inherit;
+}
+
+#slide>div figure img {
+	width: 100%;
+	height: 100%;
+
+	position: absolute;
+	object-fit: cover;
+}
+
+#slide>div figure section {
+	width: 30%;
+	height: 50%;
+
+	position: absolute;
+	top: 25%;
+	left: 10%;
+
+	opacity: 1;
+	z-index: 2;
+	font-size: 80px;
+	color: white;
+	font-weight: bolder;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#slide>div figure section p:first-child {
+	font-size: 30px;
+	font-weight: normal;
+	width: fit-content;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	border-bottom: 2px solid white;
+}
+
+#slide>div figure section a {
+	padding: 20px;
+	color: white;
+	border: 2px solid white;
+	font-size: 30px;
+	font-weight: bold;
+	text-shadow: none;
+}
+
+#slide>div figure section a:hover {
+	background-color: black;
+	transition: background-color 0.3s ease;
+}
+
+#main  #items {
+	width: 100%;
+
+	display: flex;
+}
+
+footer {
+	width: 100%;
+	height: 80vh;
+}
+
+footer  #social {
+	width: 100%;
+	height: 40vh;
+}
+
+footer #foot_info {
+	width: 100%;
+	height: 60vh;
+}
