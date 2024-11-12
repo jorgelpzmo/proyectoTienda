@@ -12,6 +12,10 @@
             return $this->DAOUsuario->selectUsuario($id);
         }
 
+        /*public function getUsuariobyNicknamePassword($nickname, $password) {
+            return $this->DAOUsuario->selectUsuariobyNicknamePassword($nickname, $password);
+        }*/
+
         public function getAllUsuarios() {
             return $this->DAOUsuario->selectAllUsuarios();
         }
