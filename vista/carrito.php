@@ -12,7 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>montana</title>
 	<link rel="shortcut icon" href="https://www.montanacolors.com/favicon.ico">
-	<link rel="stylesheet" href="carrito.css">
+	<link rel="stylesheet" href="css/carrito.css">
 </head>
 <body>
 	<header>

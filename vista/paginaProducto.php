@@ -15,7 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>montana</title>
 	<link rel="shortcut icon" href="https://www.montanacolors.com/favicon.ico">
-	<link rel="stylesheet" href="paginaProducto.css">
+	<link rel="stylesheet" href="css/paginaProducto.css">
 </head>
 <body>
 	<header>
