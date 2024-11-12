@@ -9,6 +9,7 @@
 <body>
 <h1>Inicio de Sesión</h1>
 <?php
+// LO MISMO, NO HAY QUE INICIALIZAR
     $avisoNickname = "";
     $aviso = "";
     if (isset($_REQUEST['avisoNickname'])) {
@@ -22,7 +23,7 @@
     <label>Introduce tu usuario:</label>
     <input type="text" id="loginUsuario" name="loginUsuario" required><br> <!--Con el required obligas
      a que ese campo sea rellenado para poder
-     enviar el formulario-->
+     enviar el formulario, AQUI DEBERIAS HACER EL MISMO CONTROL QUE EN EL FORM-->
 
     <label>Introduce tu contraseña:</label>
     <input type="password" id="loginContra" name="loginContra" required><br>

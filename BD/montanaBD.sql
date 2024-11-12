@@ -49,7 +49,7 @@ INSERT INTO productos (nombre, descripcion, precio, imagen, stock) VALUES
     ("WATER BASED", "Lata de pintura base agua en spray de 400ml, sin olores que la acompañen", 5.85, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/mtnwaterbased400683.jpg",  500),
     ("NITRO 2G", "Lata de pintura acrilica en spray de 400ml, presión alta y una formula ideal para cubrir pigmentos complicados", 4.95, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/nitro2g-400232.jpg",  500),
     ("POCKET", "Lata de pintura acrilica en spray de tamaño reducido", 5.85, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/montana-colors-aerosol-pintura-formato-pocket876.jpg",  500),
-    ("MICRO", "Lata de pintura acrilica en spray de tamaño muy reducido", 5.25, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/micro527.jpg",  500),
+    ("MICRO", "Lata de pintura acrilica en spray de tamaño extra reducido", 5.25, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/micro527.jpg",  500),
     ("WALKING LOGO SWEATSHIRT", "Sudadera con Walking Logo", 58.65, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/mtn-sudadera-walking-1585.jpg",  150),
     ("HANDSTYLE SWEATSHIRT", "Sudadera con Logo tipo hanstyle", 58.65, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/mtn-sudadera-handstyle156.jpg",  150),
     ("HARDCORE 25TH SWEATSHIRT", "Sudadera edición limitada 25 aniversario", 78.65, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/montana-colors-spray-pintura-sudadera-hardcore673.jpg",  25),

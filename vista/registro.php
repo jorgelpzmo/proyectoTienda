@@ -7,6 +7,7 @@
 <body>
 <h1>¡Rellena el formulario para registrate!</h1>
 <?php
+// NO HAY QUE INICIALIZARLAS
 $avisoNombre = "";
 $avisoApellido = "";
 $avisoNickname = "";
@@ -67,7 +68,7 @@ if (isset($_REQUEST['avisoFormatoContra'])) {
 </form>
 <p><?= $avisoNombre ?></p>
 <p><?= $avisoApellido ?></p>
-<p><?= $avisoNickname ?></p> <!--Tengo un aviso que se llama igual en el login.php, no se si dará error, tener en cuente por si algo raro pasa-->
+<p><?= $avisoNickname ?></p> <!--Tengo un aviso que se llama igual en el login.php, no se si dará error, tener en cuente por si algo raro pasa NO PASA NADA SON DOS ARCHIVOS DIFERENTES-->
 <p><?= $avisoContra ?></p>
 <p><?= $avisoTelefono ?></p>
 <p><?= $avisoDomicilio ?></p>

@@ -5,6 +5,7 @@
 	$cantidad = $_REQUEST['cantidad'];
 	$control_producto = new ControlProducto();
 	
+	
 	$producto = $control_producto->getProducto($producto_id);
 	$nombre = $producto->getNombre();
 	$descripcion = $producto->getDescripcion();
@@ -15,6 +16,7 @@
 	if (session_status() === PHP_SESSION_NONE) {
 		session_name('carrito');
 		session_start();
+		//session_unset();
 	}
 
 	//Calculo cantidad total

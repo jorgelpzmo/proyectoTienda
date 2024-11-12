@@ -33,6 +33,8 @@
 			$control_compra->nuevaCompra($compra);
 			$control_producto->actualizarStock($productos[$i], $cantidad);
 		}
+		unset($_SESSION['productos'], $_SESSION['cantidades'], $_SESSION['total']);
+		header("Location:../vista/carrito.php");
 		header("Location:../vista/ticket.php");
 		exit;
 
@@ -40,16 +42,25 @@
 		unset($_SESSION['productos'], $_SESSION['cantidades'], $_SESSION['total']);
 		header("Location:../vista/carrito.php");
 		exit;
-	} else if (isset($_REQUEST['borrar_producto'])) {
-		$producto_id = $_REQUEST['borrar_producto'];
-		for ($i = 0; $i < count($productos); $i++) {
-			if ($producto_id == $productos[$i]->getId()) {
-				unset($_SESSION['productos'][$i]);
-				unset($_SESSION['cantidades'][$i]);
-				$_SESSION['total'] -= $productos[$i]->getPrecio() * $cantidades[$i];
-				header("Location:../vista/carrito.php");
-				exit;
+	} else {
+		if (count($productos) == 1) {
+			unset($_SESSION['productos'], $_SESSION['cantidades'], $_SESSION['total']);
+			header("Location:../vista/carrito.php");
+			exit;
+		} else {
+			$producto_id = $_REQUEST['borrar_producto'];
+			for ($i = 0; $i < count($productos); $i++) {
+				if ($producto_id == $productos[$i]->getId()) {
+					unset($_SESSION['productos'][$i]);
+					unset($_SESSION['cantidades'][$i]);
+					$_SESSION['productos'] = array_values($_SESSION['productos']);
+					$_SESSION['cantidades'] = array_values($_SESSION['cantidades']);
+					$_SESSION['total'] -= $productos[$i]->getPrecio() * $cantidades[$i];
+					header("Location:../vista/carrito.php");
+					exit;
+				}
 			}
 		}
+		
 	}
 ?>
