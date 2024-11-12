@@ -1,39 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* KEYFRAMES */
-@keyframes slide {
-    0%      { left: 0%; }
-    24.9%     { left: 0%; }
-    25%     { left: -100%; }
-    49.9%     { left: -100%; }
-    50%     { left: -200%; }
-    74.9%     { left: -200%; }
-    75%     { left: -300%; }
-    99.9%     { left: -300%; }
-    100%    { left: 0%; }
-}
-
-@keyframes fade {
-    0%, 24.5%  { opacity: 1; }
-    24.6%, 24.8%   { opacity: 0.5; }
-	24.9%, 25% {opacity: 0;}
-    25.3%, 49.5% { opacity: 1; }
-    49.6%, 49.8%   { opacity: 0.5; }
-	49.9%, 50% {opacity: 0;}
-    50.3%, 74.5% { opacity: 1; }
-    74.6%, 74.8%   { opacity: 0.5; }
-	74.9%, 75% {opacity: 0;}
-    75.3%, 99.5% { opacity: 1; }
-    99.6%, 98.8% { opacity: 0.5; }
-	99.9%, 100% {opacity: 0;}
-}
-
 @keyframes saltito {
 	0% 	 {transform: translate(0, 0);}
 	30%  {transform: translate(0, -10%);}
 	100% {transform: translate(0, 0);}
 }
-
 
 /* ATRIBUTOS GENERALES */
 * {
@@ -171,154 +143,93 @@ header a {
 }
 
 /* CUERPO */
-#main {
-	width: 100%;
-	height: auto;
-
-	display: flex;
-	flex-direction: column;
-	
-	margin-top: 9vh;
-}
-
-/* SLIDER */
-#main  #slide {
+#producto {
 	width: 100%;
 	height: 91vh;
-	overflow: hidden;
-	background-color: black;
-}
-
-#slide>div {
-	width: 400%;
-	height: 100%;
-
-	position: relative;
-
-	font-size: 0;
-	animation: 25s slide infinite ease, 25s fade infinite ease;
-}
-
-#slide>div figure {
-	width: 25%;
-	height: 100%;
-
-	display: inline-block;
-	position: inherit;
-}
-
-#slide>div figure img {
-	width: 100%;
-	height: 100%;
-
-	position: absolute;
-	object-fit: cover;
-}
-
-#slide>div figure section {
-	width: 30%;
-	height: 50%;
-
-	position: absolute;
-	top: 25%;
-	left: 10%;
-
-	opacity: 1;
-	z-index: 2;
-	font-size: 80px;
-	color: white;
-	font-weight: bolder;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-#slide>div figure section p:first-child {
-	font-size: 30px;
-	font-weight: normal;
-	width: fit-content;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-	border-bottom: 2px solid white;
-}
-
-#slide>div figure section a {
-	padding: 20px;
-	color: white;
-	border: 2px solid white;
-	font-size: 30px;
-	font-weight: bold;
-	text-shadow: none;
-}
-
-#slide>div figure section a:hover {
-	background-color: black;
-	transition: background-color 0.3s ease;
-}
-
-/* TIENDA */
-#main  #items {
-	width: 100%;
 
 	display: flex;
+
+	margin-top: 9vh;
+	padding: 60px;
+}
+
+#producto img {
+	width: 50%;
+	object-fit: contain;
+	
+	border-bottom: 2px solid #8e8e8e;
+	padding-bottom: 20px;
+}
+
+#datos {
+	width: 50%;
+	
+	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 
-	color: black;
-	padding: 40px;
+	padding-bottom: 20px;
+	border-bottom: 2px solid #8e8e8e;
 }
 
-#items p:first-child {
-	font-size: 25px;
-	padding-left: 20px;
-}
-
-#items>p:nth-child(2) {
-	font-size: 70px;
+#datos>p:nth-child(1) {
+	font-size: 40px;
 	font-weight: bold;
-	padding-left: 20px;
+	border-top: 4px solid black;
 }
 
-/* PRODUCTOS */
-#productos {
-	width: 100%;
+#datos>p:nth-child(2) {
+	font-size: 17px;
+	font-family: Arial, Helvetica, sans-serif;
+}
 
+#datos>p:nth-child(3) {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+#pedido {
 	display: flex;
 	flex-wrap: wrap;
-}
-
-.producto {
-	width: 25%;
-
-	display: inline-flex;
-	flex-direction: column;
 	align-items: center;
-	
-	padding: 10px;
-	cursor: pointer;
-	background-color: transparent;
-	transition: background-color 0.3s ease;
 }
 
-.producto:hover {
-	background-color: #f0f0f0;
+#pedido label {
+	display: flex;
+	align-items: center;
+
+	font-size: 30px;
+	font-weight: bold;
 }
 
-.producto img {
+#pedido input[type=number] {
+	width: 15%;
+
+	margin-left: 20px;
+	border-radius: 0;
+	border: 2px solid #616161;
+	text-align: center;
+	font-size: 20px;
+}
+
+#pedido input[type=submit] {
 	width: 100%;
-	height: 90%;
-}
 
-.prod_name {
+	padding: 10px;
+	border: 0;
+	border-radius: 0;
+	background-color: #2f74bd;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	color: white;
 	font-size: 20px;
 	font-weight: bold;
-	margin-right: auto;
 }
 
-.prod_price {
-	font-size: 15px;
-	margin-right: auto;
+#pedido input[type=submit]:hover {
+	background-color: #429af9;
 }
 
-input[type="submit"] {
-	display: none;
-}
 
 /* PIE DE PÁGINA */	
 footer {
@@ -334,7 +245,7 @@ footer  #social {
 	flex-direction: column;
 
 	background-color: white;
-	padding-left: 40px;
+	padding-left: 60px;
 	font-size: 17px;
 	font-weight: bold;
 }
