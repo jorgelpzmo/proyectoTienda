@@ -9,7 +9,11 @@
 <body>
 <h1>Inicio de Sesión</h1>
 <?php
+    $avisoNickname = "";
     $aviso = "";
+    if (isset($_REQUEST['avisoNickname'])) {
+        $avisoNickname = $_REQUEST['avisoNickname'];
+    }
     if (isset($_REQUEST['aviso'])) {
         $aviso = $_REQUEST['aviso'];
     }
@@ -26,6 +30,7 @@
     <input type="submit" value="Iniciar sesión">
 </form>
 <!--<button type="button" onclick="location.href='registro.html'">Registrarse</button>-->
-<a href="registro.html"><?= $aviso ?></a>
+<p><?= $avisoNickname ?></p>
+<a href="registro.php"><?= $aviso ?></a>
 </body>
 </html>

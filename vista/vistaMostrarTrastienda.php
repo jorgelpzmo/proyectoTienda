@@ -16,6 +16,12 @@ $productos = $control_producto->getAllProductos();
     <form action="../controlador/peticionAnadirTrastienda.php" method="post">
         <button type="submit" name="action" value="anadir">Añadir nuevo producto</button>
     </form>
+    <form action="../controlador/peticionVolver.php" method="post">
+        <button type="submit" name="action" value="volver" id="boton">Volver</button>
+    </form>
+    <form action="../controlador/peticionPedido.php" method="post">
+        <button type="submit" name="action" value="pedido" id="boton">Nuevo pedido</button>
+    </form>
     <table>
     <table border="1">
         <thead>
@@ -49,5 +55,8 @@ $productos = $control_producto->getAllProductos();
             <?php endforeach;?>
         </tbody>
     </table>
+    <form action="../controlador/peticionVolver.php" method="post">
+        <button type="submit" name="action" value="volver" id="boton">Volver</button>
+    </form>
 </body>
 </html>
