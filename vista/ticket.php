@@ -9,37 +9,36 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>montana</title>
+	<link rel="shortcut icon" href="https://www.montanacolors.com/favicon.ico">
+	<link rel="stylesheet" href="ticket.css">
 </head>
 <body>
-	<header>
-		<section id="logo"><a href="index.php">logo</a></section>
-		<section id="inicio"><a href="index.php">inicio</a></section>
-		<section id="carrito"><a href="carrito.php">carrito</a></section>
-		<section id="user"><a href="usuario.php">usuario</a></section>
-		<section id="trastienda"><a href="menuTrastienda.php">trastienda</a></section>
-	</header>
 	<div id="ticket">
-		<h4><?= $_SESSION['id'] ?></h4>
+		<p>TICKET</p>
+		<h4><?= "ID: " . $_SESSION['id'] ?></h4>
 		<?php for ($i = 0; $i < count($_SESSION['productos']); $i++):?>
-			<article>
-				<img src="" alt="">
+			<?php
+				$producto_id = $_SESSION['productos'][$i]->getId();
+				$nombre = $_SESSION['productos'][$i]->getNombre();
+				$descripcion = $_SESSION['productos'][$i]->getDescripcion();
+				$precio = $_SESSION['productos'][$i]->getPrecio();
+				$imagen = $_SESSION['productos'][$i]->getImagen();
+				$stock = $_SESSION['productos'][$i]->getStock();
+				$cantidad = $_SESSION['cantidades'][$i];
+			?>
+			<article class="entrada">
+				<img src="<?= $imagen ?>">
 				<div>
-					<p><?= $_SESSION['productos'][$i]->getNombre() . " " . $_SESSION['cantidades'][$i] . " " . $_SESSION['productos'][$i]->getPrecio()?></p>
+					<p><?= $nombre ?></p>
+					<p><?= "ID: " . $producto_id ?></p>
 				</div>
+				<p class="cantidad"><?= $cantidad ?></p>
+				<p><?= $precio . "€" ?></p>
 			</article>
 		<?php endfor; ?>
-		<h2><?= "TOTAL: " . $_SESSION['total'] ?></h2>
-		<?php unset($_SESSION['productos'], $_SESSION['cantidades']); ?>
-		<a href="index.php">inicio</a>
+		<h2><?= "TOTAL: " . $_SESSION['total'] . "€" ?></h2>
+		<a href="index.php">Volver al Inicio</a>
 	</div>
-	<footer>
-		<section id="social">
-
-		</section>
-		<section id="foot_info">
-
-		</section>
-	</footer>
 </body>
 </html>
 </html>
