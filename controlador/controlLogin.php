@@ -23,7 +23,7 @@ if ($controlUsuario->comprobarNickname($loginUsuario)) {
             $_SESSION['id'] = $usuario->getId();
 
             header("location:../vista/index.php");
-            unset($_SESSION['nickname'], $_SESSION['password'], $_SESSION['id']);
+            //unset($_SESSION['nickname'], $_SESSION['password'], $_SESSION['id']); Simplemente Ejemplo
             exit;
         }
     } else {

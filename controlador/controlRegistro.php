@@ -1,36 +1,57 @@
 <?php
-require_once 'ControlUsuario.php';
-/*<form action="../controlador/controlRegistro.php" method="post">
 
-    <label>Introduce tu nombre: </label>
-    <input type="text" id="nombre" name="nombre" required>
+// Inicializamos variables de aviso
+$avisoNombre = $avisoApellido = $avisoNickname = $avisoContra = $avisoTelefono = $avisoDomicilio = "";
 
-    <label>Introduce tu apellido: </label>
-    <input type="text" id="apellido" name="apellido" required>
+// Validamos los campos del formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nombre = trim($_POST['nombre']);
+    $apellido = trim($_POST['apellido']);
+    $nickname = trim($_POST['nickname']);
+    $contra = trim($_POST['contra']);
+    $telefono = trim($_POST['telefono']);
+    $domicilio = trim($_POST['domicilio']);
 
-    <label>Introduce un nickname: </label>
-    <input type="text" id="nickname" name="nickname" required>
+    $hayError = false;
 
-    <label>Introduce una contraseña : </label>
-    <input type="text" id="contra" name="contra" required>
+    // Validamos si cada campo está vacío
+    if (empty($nombre)) {
+        $avisoNombre = "El nombre es obligatorio";
+        $hayError = true;
+    }
+    if (empty($apellido)) {
+        $avisoApellido = "El apellido es obligatorio";
+        $hayError = true;
+    }
+    if (empty($nickname)) {
+        $avisoNickname = "El nickname es obligatorio";
+        $hayError = true;
+    }
+    if (empty($contra)) {
+        $avisoContra = "La contraseña es obligatoria";
+        $hayError = true;
+    }
+    if (empty($telefono)) {
+        $avisoTelefono = "El teléfono es obligatorio";
+        $hayError = true;
+    }
+    if (empty($domicilio)) {
+        $avisoDomicilio = "El domicilio es obligatorio";
+        $hayError = true;
+    }
 
-    <label>Introduce tu telefono: </label>
-    <input type="text" id="telefono" name="telefono" required>
+    // Si hay algún error, redirigimos de vuelta a registro.php con los mensajes de error
+    if ($hayError) {
+        header("Location: ../vista/registro.php?avisoNombre=$avisoNombre&avisoApellido=$avisoApellido&avisoNickname=$avisoNickname&avisoContra=$avisoContra&avisoTelefono=$avisoTelefono&avisoDomicilio=$avisoDomicilio");
+        exit();
+    }
 
-    <label>Introduce tu domicilio: </label>
-    <input type="text" id="domicilio" name="domicilio" required>
-
-    <input type="submit" value="Enviar">*/
-
-$controlUsuario = new ControlUsuario();
-
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$nickname = $_POST['nickname'];
-$password = $_POST['contra'];
-$telefono = $_POST['telefono'];
-$domicilio = $_POST['domicilio'];
-
-
+    // Aquí puedes continuar con el registro si todos los campos son válidos
+    echo "Registro exitoso";
+} else {
+    // Si no es un método POST, redirigimos al formulario de registro
+    header("Location: ../vista/registro.php");
+    exit();
+}
 ?>
 
