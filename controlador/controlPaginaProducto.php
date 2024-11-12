@@ -18,6 +18,7 @@
 	}
 
 	//Calculo cantidad total
+	$cantidad_total = $cantidad;
 	if (isset($_SESSION['productos'])) {
 		for ($i = 0; $i < count($_SESSION['productos']); $i++)	 {
 			if ($_SESSION['productos'][$i]->getId() == $producto_id) {
@@ -25,8 +26,9 @@
 			}
 		}
 	}
+	
 	if ($cantidad_total > $stock) {
-		$aviso_stock = "No hay suficiente stock del producto";
+		$aviso_stock = "No hay suficiente stock";
 		header("Location:../vista/paginaProducto.php?id=$producto_id&nombre=$nombre&descripcion=$descripcion&precio=$precio&imagen=$imagen&stock=$stock&aviso_stock=$aviso_stock");
 		exit;
 	} else
