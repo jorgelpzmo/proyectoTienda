@@ -11,16 +11,22 @@ $passwordUsuario = $_POST['loginContra'];
 //print $loginUsuario;
 //print $passwordUsuario;
 $controlUsuario = new ControlUsuario();
-$usuario = $controlUsuario->comprobarUsuario($loginUsuario, $passwordUsuario);
+$usuario = $controlUsuario->comprobarUsuario($loginUsuario, $passwordUsuario); //MIRA ESTA QUE FUNCIONABA ANTES
+//$usuario = $controlUsuario->getUsuariobyNicknamePassword($loginUsuario, $passwordUsuario);
 //print "resultado" . $controlUsuario->comprobarNickname($loginUsuario);
 if ($controlUsuario->comprobarNickname($loginUsuario)) {
   //  print "resultadoDIFER " . $controlUsuario->comprobarPassword($passwordUsuario);
     //exit;
     if ($controlUsuario->comprobarPassword($passwordUsuario)) {
         if ($usuario) {
+            $_SESSION['id'] = $usuario->getId();
+            $_SESSION['nombre'] = $usuario->getNombre();
+            $_SESSION['apellido'] = $usuario->getApellido();
             $_SESSION['nickname'] = $usuario->getNickname();
             $_SESSION['password'] = $usuario->getPassword();
-            $_SESSION['id'] = $usuario->getId();
+            $_SESSION['telefono'] = $usuario->getTelefono();
+            $_SESSION['domicilio'] = $usuario->getDomicilio();
+
 
             header("location:../vista/index.php");
             //unset($_SESSION['nickname'], $_SESSION['password'], $_SESSION['id']); Simplemente Ejemplo

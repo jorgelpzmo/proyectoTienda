@@ -50,6 +50,30 @@ class DAOusuario
 
     }
 
+    /*public function selectUsuariobyNicknamePassword($nickname, $password) { //Cuidado con esto
+        $stmt = $this->conn->prepare("SELECT * FROM usuarios WHERE nickname = :nickname AND password = :password");
+
+        $stmt->bindParam(":nickname", $nickname);
+        $stmt->bindParam(":password", $password);
+
+        $fila = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($fila) {
+            $usuario = new DTOusuario(
+                $fila['id'],
+                $fila['nombre'],
+                $fila['apellido'],
+                $fila['nickname'],
+                $fila['password'],
+                $fila['telefono'],
+                $fila['domicilio']
+            );
+            return $usuario;
+        } else {
+            return null;
+        }
+    }*/
+
     public function selectAllUsuarios() {
         $stmt = $this->conn->prepare("SELECT * FROM usuarios");
         $stmt->execute();
