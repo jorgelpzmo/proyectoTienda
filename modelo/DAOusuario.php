@@ -92,12 +92,12 @@ class DAOusuario
         (nombre, apellido, nickname, password, telefono, domicilio) 
         VALUES (:nombre, :apellido, :nickname, :password, :telefono, :domicilio)");
 
-        $stmt->bindParam(':nombre', $usuario->getNombre());
-        $stmt->bindParam(':apellido', $usuario->getApellido());
-        $stmt->bindParam(':nickname', $usuario->getNickname());
-        $stmt->bindParam(':password', $usuario->getPassword());
-        $stmt->bindParam(':telefono', $usuario->getTelefono());
-        $stmt->bindParam(':domicilio', $usuario->getDomicilio());
+        $stmt->bindValue(':nombre', $usuario->getNombre()); //Por si alguien lo ve y le ha dado error o le pone un mensaje relacionado con el xampp que sepa que cuando usamos marcadores ":id" en vez de "?" para consultas precompiladas es necesario usar el bindValue, y no en bindParam que es para las sentencias que utilizan ?
+        $stmt->bindValue(':apellido', $usuario->getApellido());
+        $stmt->bindValue(':nickname', $usuario->getNickname());
+        $stmt->bindValue(':password', $usuario->getPassword());
+        $stmt->bindValue(':telefono', $usuario->getTelefono());
+        $stmt->bindValue(':domicilio', $usuario->getDomicilio());
 
         return $stmt->execute(); //Este return devuelve un true si la consulta se ejecutó o un false si la consulta no se ejecutó.
     }

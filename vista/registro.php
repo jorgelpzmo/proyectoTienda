@@ -13,6 +13,9 @@ $avisoNickname = "";
 $avisoContra = "";
 $avisoTelefono = "";
 $avisoDomicilio = "";
+$avisoFormatoNickname = "";
+$avisoFormatoContra = "";
+
 if (isset($_REQUEST['avisoNombre'])) {
     $avisoNombre = $_REQUEST['avisoNombre'];
 }
@@ -31,6 +34,12 @@ if (isset($_REQUEST['avisoTelefono'])) {
 if (isset($_REQUEST['avisoDomicilio'])) {
     $avisoDomicilio = $_REQUEST['avisoDomicilio'];
 }
+if (isset($_REQUEST['avisoFormatoNickname'])) {
+    $avisoFormatoNickname = $_REQUEST['avisoFormatoNickname'];
+}
+if (isset($_REQUEST['avisoFormatoContra'])) {
+    $avisoFormatoContra = $_REQUEST['avisoFormatoContra'];
+}
 
 ?>
 <form action="../controlador/controlRegistro.php" method="post">
@@ -45,7 +54,7 @@ if (isset($_REQUEST['avisoDomicilio'])) {
   <input type="text" id="nickname" name="nickname"> <!--required-->
 
   <label>Introduce una contraseña : </label>
-  <input type="text" id="contra" name="contra"> <!--required-->
+  <input type="password" id="contra" name="contra"> <!--required-->
 
   <label>Introduce tu telefono: </label>
   <input type="text" id="telefono" name="telefono"> <!--required -->
@@ -62,6 +71,8 @@ if (isset($_REQUEST['avisoDomicilio'])) {
 <p><?= $avisoContra ?></p>
 <p><?= $avisoTelefono ?></p>
 <p><?= $avisoDomicilio ?></p>
+<p><?= $avisoFormatoNickname ?></p>
+<p><?= $avisoFormatoContra ?></p>
 
 </body>
 </html>
