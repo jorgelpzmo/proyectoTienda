@@ -26,12 +26,12 @@ if ($controlUsuario->comprobarNickname($loginUsuario)) {
             exit;
         }
     } else {
-        $aviso = "La contraseña es incorrecta, introdúcela de nuevo.";
+        $aviso = "La contraseña introducida es incorrecta";
         header("location: ../vista/login.php?aviso=$aviso");
         exit;
     }
 } else {
-    $aviso = "NO TINES CUENTA, regístrate.";
+    $aviso = "El nombre de usuario introducido no está registrado";
     header("location: ../vista/login.php?aviso=$aviso");
     exit;
 }
