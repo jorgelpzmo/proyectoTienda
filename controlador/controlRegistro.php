@@ -44,16 +44,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $patronUsuario = "/^\w{3,}$/";
-    $patronContra = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/";
+    $patronUsuario = "/^\w{3,20}$/";
+    $patronContra = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,20}$/";
+    $patronNomYApe = "/^[a-zA-Z]{1,20}$/";
+    $patronTelefono = "/^[0-9]{9}$/";
 
-    if (!preg_match($patronUsuario, $nickname)) {
-        $aviso = "El nickname solo puede contener caracteres alfanumericos con un mínimo de 3";
+    if (!preg_match($patronNomYApe, $nombre)) {
+        $aviso = "El nombre solo puede estar formado por letras hasta un máximo de 20 caracteres.";
         $hayError = true;
-    }
-
-    if (!preg_match($patronContra, $contra)) {
+    } else if (!preg_match($patronNomYApe, $apellido)) {
+        $aviso = "El apellido solo puede estar formado por letras hasta un máximo de 20 caracteres.";
+        $hayError = true;
+    } else if (!preg_match($patronUsuario, $nickname)) {
+        $aviso = "El nickname solo puede contener caracteres alfanuméricos con un mínimo de 3 y máximo 20 caracteres.";
+        $hayError = true;
+    } else if (!preg_match($patronContra, $contra)) {
         $aviso = "No es posible establecer esa contraseña."; //Nico doy pistas o no?? En plan, digo que es necesario que hay mínimo una mayúscula, una minúscula y un número o solo digo que nos viable???
+        $hayError = true;
+    } else if (!preg_match($patronTelefono, $telefono)) {
+        $aviso = "El número de teléfono debe de estar formado por 9 caracteres numéricos.";
         $hayError = true;
     }
 
@@ -65,12 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nuevoUsuario = new DTOusuario(" ", $nombre, $apellido, $nickname, $contra, $telefono, $domicilio);
 
     if ($controlRegistro->nuevoUsuario($nuevoUsuario)) {
-        $aviso = "Ya ha creado tu usuario, registrate";
+        $aviso = "Ya has creado tu usuario, inicia sesión";
         header("location: ../vista/login.php?aviso=$aviso");
     }
-
-
-
 
 } else {
     // Si no es un método POST, redirigimos al formulario de registro
