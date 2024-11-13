@@ -4,7 +4,7 @@ require_once 'ControlUsuario.php';
 require_once '../modelo/DTOusuario.php';
 
 // Inicializamos variables de aviso
-$avisoNombre = $avisoApellido = $avisoNickname = $avisoContra = $avisoTelefono = $avisoDomicilio = "";
+$aviso = "";
 $controlRegistro = new ControlUsuario();
 // Validamos los campos del formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -17,63 +17,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $hayError = false;
 
-
     // Validamos si cada campo está vacío
     if (empty($nombre)) {
-        $avisoNombre = "El nombre es obligatorio";
+        $aviso = "Todos los campos son obligatorios.";
         $hayError = true;
-    }
-    if (empty($apellido)) {
-        $avisoApellido = "El apellido es obligatorio";
+    } else if (empty($apellido)) {
+        $aviso = "Todos los campos son obligatorios.";
         $hayError = true;
-    }
-    if (empty($nickname)) {
-        $avisoNickname = "El nickname es obligatorio";
+    } else if (empty($nickname)) {
+        $aviso = "Todos los campos son obligatorios.";
         $hayError = true;
-    }
-    if (empty($contra)) {
-        $avisoContra = "La contraseña es obligatoria";
+    } else if (empty($contra)) {
+        $aviso = "Todos los campos son obligatorios.";
         $hayError = true;
-    }
-    if (empty($telefono)) {
-        $avisoTelefono = "El teléfono es obligatorio";
+    } else if (empty($telefono)) {
+        $aviso = "Todos los campos son obligatorios.";
         $hayError = true;
-    }
-    if (empty($domicilio)) {
-        $avisoDomicilio = "El domicilio es obligatorio";
+    } else if (empty($domicilio)) {
+        $aviso= "Todos los campos son obligatorios.";
         $hayError = true;
     }
 
     // Si hay algún error, redirigimos de vuelta a registro.php con los mensajes de error
     if ($hayError) {
-        header("Location: ../vista/registro.php?avisoNombre=$avisoNombre&avisoApellido=$avisoApellido&avisoNickname=$avisoNickname&avisoContra=$avisoContra&avisoTelefono=$avisoTelefono&avisoDomicilio=$avisoDomicilio");
+        header("Location: ../vista/registro.php?aviso=$aviso");
         exit();
     }
 
-    $hayErrorFormato = false;
     $patronUsuario = "/^\w{3,}$/";
     $patronContra = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/";
 
     if (!preg_match($patronUsuario, $nickname)) {
-        $avisoFormatoNickname = "El nickname solo puede contener caracteres alfanumericos con un mínimo de 3";
-        $hayErrorFormato = true;
+        $aviso = "El nickname solo puede contener caracteres alfanumericos con un mínimo de 3";
+        $hayError = true;
     }
 
     if (!preg_match($patronContra, $contra)) {
-        $avisoFormatoContra = "No es posible establecer esa contraseña."; //Nico doy pistas o no?? En plan, digo que es necesario que hay mínimo una mayúscula, una minúscula y un número o solo digo que nos viable???
-        $hayErrorFormato = true;
+        $aviso = "No es posible establecer esa contraseña."; //Nico doy pistas o no?? En plan, digo que es necesario que hay mínimo una mayúscula, una minúscula y un número o solo digo que nos viable???
+        $hayError = true;
     }
 
-    if ($hayErrorFormato) {
-        header("Location: ../vista/registro.php?avisoFormatoNickname=$avisoFormatoNickname&avisoFormatoContra=$avisoFormatoContra");
+    if ($hayError) {
+        header("Location: ../vista/registro.php?aviso=$aviso");
         exit();
     }
 
     $nuevoUsuario = new DTOusuario(" ", $nombre, $apellido, $nickname, $contra, $telefono, $domicilio);
 
-    $controlRegistro->nuevoUsuario($nuevoUsuario);
+    if ($controlRegistro->nuevoUsuario($nuevoUsuario)) {
+        $aviso = "Ya ha creado tu usuario, registrate";
+        header("location: ../vista/login.php?aviso=$aviso");
+    }
 
-    echo "Tu usuario se registro correctamente"; //Se podría hacer una página sencilla con estilo que dijese ese mensaje.
+
 
 
 } else {

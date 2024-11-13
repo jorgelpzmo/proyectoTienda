@@ -15,8 +15,7 @@ class DAOusuario
         $this->conn = Singleton::getCon();
     }
 
-    public function selectUsuario($id)
-    {
+    public function selectUsuario($id) {
         $stmt = $this->conn->prepare("SELECT * FROM usuarios WHERE id = :id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
@@ -36,43 +35,7 @@ class DAOusuario
         } else {
             return null;
         }
-
-        /*
- * CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(50) NOT NULL,
-    nickname VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    telefono VARCHAR(15),
-    domicilio VARCHAR(100)
-);*/
-
     }
-
-    /*public function selectUsuariobyNicknamePassword($nickname, $password) { //Cuidado con esto
-        $stmt = $this->conn->prepare("SELECT * FROM usuarios WHERE nickname = :nickname AND password = :password");
-
-        $stmt->bindParam(":nickname", $nickname);
-        $stmt->bindParam(":password", $password);
-
-        $fila = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        if ($fila) {
-            $usuario = new DTOusuario(
-                $fila['id'],
-                $fila['nombre'],
-                $fila['apellido'],
-                $fila['nickname'],
-                $fila['password'],
-                $fila['telefono'],
-                $fila['domicilio']
-            );
-            return $usuario;
-        } else {
-            return null;
-        }
-    }*/
 
     public function selectAllUsuarios() {
         $stmt = $this->conn->prepare("SELECT * FROM usuarios");
@@ -99,19 +62,7 @@ class DAOusuario
 
     }
 
-    /*
- * CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(50) NOT NULL,
-    nickname VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    telefono VARCHAR(15),
-    domicilio VARCHAR(100)
-);*/
-
-    public function insertUsuario($usuario)
-    {
+    public function insertUsuario($usuario) {
         $stmt = $this->conn->prepare("INSERT INTO usuarios 
         (nombre, apellido, nickname, password, telefono, domicilio) 
         VALUES (:nombre, :apellido, :nickname, :password, :telefono, :domicilio)");
@@ -123,21 +74,9 @@ class DAOusuario
         $stmt->bindValue(':telefono', $usuario->getTelefono());
         $stmt->bindValue(':domicilio', $usuario->getDomicilio());
 
-        return $stmt->execute(); //Este return devuelve un true si la consulta se ejecutó o un false si la consulta no se ejecutó.
+        return $stmt->execute();//Este return devuelve un true si la consulta se ejecutó o un false si la consulta no se ejecutó.
     }
-
-    /* CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(50) NOT NULL,
-    nickname VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    telefono VARCHAR(15),
-    domicilio VARCHAR(100)
-    );*/
-
-    public function updateUsuario($usuario)
-    {
+    public function updateUsuario($usuario) {
         $stmt = $this->conn->prepare("UPDATE usuarios SET 
                     nombre = :nombre, 
                     apellido = :apellido,
@@ -176,13 +115,13 @@ class DAOusuario
         $fila = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($fila) {
             $usuario = new DTOusuario(
-                $usuario['id'],
-                $usuario['nombre'],
-                $usuario['apellido'],
-                $usuario['nickname'],
-                $usuario['password'],
-                $usuario['telefono'],
-                $usuario['domicilio']);
+                $fila['id'],
+                $fila['nombre'],
+                $fila['apellido'],
+                $fila['nickname'],
+                $fila['password'],
+                $fila['telefono'],
+                $fila['domicilio']);
             return $usuario;
         } else {
             return $usuario;
@@ -206,11 +145,7 @@ class DAOusuario
         $stmt->execute();
 
         return $stmt->rowCount(); //Numero de filas que devuelve.
-
-
     }
-
-
 }
 
 ?>

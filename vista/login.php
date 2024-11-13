@@ -10,11 +10,11 @@
 <h1>Inicio de Sesión</h1>
 <?php
 // LO MISMO, NO HAY QUE INICIALIZAR
-    $avisoNickname = "";
+    /*$avisoNickname = "";*/
     $aviso = "";
-    if (isset($_REQUEST['avisoNickname'])) {
+    /*if (isset($_REQUEST['avisoNickname'])) {
         $avisoNickname = $_REQUEST['avisoNickname'];
-    }
+    }*/
     if (isset($_REQUEST['aviso'])) {
         $aviso = $_REQUEST['aviso'];
     }
@@ -31,7 +31,7 @@
     <input type="submit" value="Iniciar sesión">
 </form>
 <!--<button type="button" onclick="location.href='registro.html'">Registrarse</button>-->
-<p><?= $avisoNickname ?></p>
-<a href="registro.php"><?= $aviso ?></a>
+<p><?= $aviso ?></p>
+<p>Si no estás registrado pincha <a href="registro.php">aqui</a></p>
 </body>
 </html>

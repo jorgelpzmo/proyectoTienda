@@ -8,38 +8,10 @@
 <h1>¡Rellena el formulario para registrate!</h1>
 <?php
 // NO HAY QUE INICIALIZARLAS
-$avisoNombre = "";
-$avisoApellido = "";
-$avisoNickname = "";
-$avisoContra = "";
-$avisoTelefono = "";
-$avisoDomicilio = "";
-$avisoFormatoNickname = "";
-$avisoFormatoContra = "";
+$aviso = "";
 
-if (isset($_REQUEST['avisoNombre'])) {
-    $avisoNombre = $_REQUEST['avisoNombre'];
-}
-if (isset($_REQUEST['avisoApellido'])) {
-    $avisoApellido = $_REQUEST['avisoApellido'];
-}
-if (isset($_REQUEST['avisoNickname'])) {
-    $avisoNickname = $_REQUEST['avisoNickname'];
-}
-if (isset($_REQUEST['avisoContra'])) {
-    $avisoContra = $_REQUEST['avisoContra'];
-}
-if (isset($_REQUEST['avisoTelefono'])) {
-    $avisoTelefono = $_REQUEST['avisoTelefono'];
-}
-if (isset($_REQUEST['avisoDomicilio'])) {
-    $avisoDomicilio = $_REQUEST['avisoDomicilio'];
-}
-if (isset($_REQUEST['avisoFormatoNickname'])) {
-    $avisoFormatoNickname = $_REQUEST['avisoFormatoNickname'];
-}
-if (isset($_REQUEST['avisoFormatoContra'])) {
-    $avisoFormatoContra = $_REQUEST['avisoFormatoContra'];
+if (isset($_REQUEST['aviso'])) {
+    $aviso = $_REQUEST['aviso'];
 }
 
 ?>
@@ -66,14 +38,8 @@ if (isset($_REQUEST['avisoFormatoContra'])) {
   <input type="submit" value="Enviar">
 
 </form>
-<p><?= $avisoNombre ?></p>
-<p><?= $avisoApellido ?></p>
-<p><?= $avisoNickname ?></p> <!--Tengo un aviso que se llama igual en el login.php, no se si dará error, tener en cuente por si algo raro pasa NO PASA NADA SON DOS ARCHIVOS DIFERENTES-->
-<p><?= $avisoContra ?></p>
-<p><?= $avisoTelefono ?></p>
-<p><?= $avisoDomicilio ?></p>
-<p><?= $avisoFormatoNickname ?></p>
-<p><?= $avisoFormatoContra ?></p>
+
+<p><?= $aviso ?></p>
 
 </body>
 </html>
