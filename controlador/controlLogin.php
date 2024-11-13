@@ -4,9 +4,19 @@ require_once 'ControlUsuario.php';
 
 session_name('usuario');
 session_start();
+if (isset($_POST['loginUsuario']) && isset($_POST['loginContra'])) {
+    $loginUsuario = $_POST['loginUsuario'];
+    $passwordUsuario = $_POST['loginContra'];
+}
 
-$loginUsuario = $_POST['loginUsuario'];
-$passwordUsuario = $_POST['loginContra'];
+$siHayError = false;
+
+if (empty($loginUsuario) || empty($passwordUsuario)) {
+    $aviso = "Hay que rellenar todos los campos para Iniciar Sesión";
+    header("location: ../vista/login.php?aviso=$aviso");
+    exit;
+}
+
 $controlUsuario = new ControlUsuario();
 $usuario = $controlUsuario->comprobarUsuario($loginUsuario, $passwordUsuario);
 

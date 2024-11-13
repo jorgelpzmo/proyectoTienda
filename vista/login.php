@@ -17,8 +17,8 @@
     <div id="main">
         <h1>Inicio de Sesión</h1>
         <form action="../controlador/controlLogin.php" method="post">
-            <input type="text" placeholder="Nombre de Usuario" id="loginUsuario" name="loginUsuario" required>
-            <input type="password" placeholder="Contraseña" id="loginContra" name="loginContra" required>
+            <input type="text" placeholder="Nombre de Usuario" id="loginUsuario" name="loginUsuario">
+            <input type="password" placeholder="Contraseña" id="loginContra" name="loginContra">
 
             <input type="submit" value="Iniciar sesión">
         </form>
