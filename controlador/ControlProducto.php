@@ -40,5 +40,9 @@
 			$producto->setStock($stock);
 			return $this->DAOProducto->updateStock($producto);
 		}
+
+		public function reponer($producto) {
+			return $this->DAOProducto->updateStock($producto);
+		}
 	}
 ?>
