@@ -28,6 +28,22 @@
             return $this->DAOUsuario->updateUsuario($usuario);
         }
 
+        public function actualizarNickname($nickname, $id) {
+            return $this->DAOUsuario->updateNickname($nickname, $id);
+        }
+
+        public function actualizarPassword($password, $id) {
+            return $this->DAOUsuario->updatePassword($password, $id);
+        }
+
+        public function actualizarTelefono($telefono, $id) {
+            return $this->DAOUsuario->updateTelefono($telefono, $id);
+        }
+
+        public function actualizarDomicilio($domicilio, $id) {
+            return $this->DAOUsuario->updateDomicilio($domicilio, $id);
+        }
+
         public function borrarUsuario($id) {
             if (self::getUsuario($id)) {
                 $this->DAOUsuario->deleteUsuario($id);

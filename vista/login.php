@@ -26,6 +26,7 @@
 </form>
 <!--<button type="button" onclick="location.href='registro.html'">Registrarse</button>-->
 <p><?= $aviso ?></p>
-<p>Si no estás registrado pincha <a href="registro.php">aquí</a></p>
+<p>Si no estás registrado, pincha <a href="registro.php">aquí</a></p>
 </body>
 </html>
+<!--Puedo meterle la opcion de que cambie la contraseña en el caso de que se le halla olvidado pero eso si queréis lo hablamos-->

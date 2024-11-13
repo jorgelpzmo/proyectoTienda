@@ -96,6 +96,39 @@ class DAOusuario
         return $stmt->execute();//Este return devuelve un true si la consulta se ejecutó o un false si la consulta no se ejecutó.
     }
 
+    public function updateNickname($nickname, $id) {
+        $stmt = $this->conn->prepare("UPDATE usuarios SET nickname = :nickname WHERE id = :id");
+        $stmt->bindValue(':nickname', $nickname);
+        $stmt->bindValue(':id', $id);
+
+        return$stmt->execute();
+        /*return $stmt->rowCount();*/ //RECORDAR QUE TENGO ESTE RETURN PARA CAMBIARLO POR EL $stmt->execute(); EN EL CASO DE QUE ME DE ALGÚN ERROR.
+    }
+
+    public function updatePassword($password, $id) {
+        $stmt = $this->conn->prepare("UPDATE usuarios SET password = :password WHERE id = :id");
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+        /*return $stmt->rowCount();*/
+    }
+
+    public function updateTelefono($telefono, $id) {
+        $stmt = $this->conn->prepare("UPDATE usuarios SET telefono = :telefono WHERE id = :id");
+        $stmt->bindParam(':telefono', $telefono);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+         /*$stmt->rowCount();*/
+    }
+
+    public function updateDomicilio($domicilio, $id) {
+        $stmt = $this->conn->prepare("UPDATE usuarios SET domicilio = :domicilio WHERE id = :id");
+        $stmt->bindParam(':domicilio', $domicilio);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+         /*$stmt->rowCount();*/
+    }
+
     public function deleteUsuario($id) {
         $stmt = $this->conn->prepare("DELETE FROM usuarios WHERE id = :id");
         $stmt->bindParam(':id', $id);
