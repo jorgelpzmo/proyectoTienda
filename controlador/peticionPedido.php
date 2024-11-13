@@ -1,6 +1,6 @@
 <?php 
 if($_REQUEST["action"]=="pedido"){
-    header("Location: vistaPedido.php");
+    header("Location: ../vista/vistaPedido.php");
     exit;
 }
 ?>
