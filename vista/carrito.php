@@ -32,7 +32,10 @@
 
 	<div id="cuerpo">
 		<p>CARRITO</p>
-		<?php for ($i = 0; $i < count($_SESSION['productos']); $i++):?>
+		<?php
+			if (isset($_SESSION['productos'])):
+			for ($i = 0; $i < count($_SESSION['productos']); $i++):
+		?>
 			<?php
 				$producto_id = $_SESSION['productos'][$i]->getId();
 				$nombre = $_SESSION['productos'][$i]->getNombre();
@@ -63,6 +66,7 @@
 			<input id="comprar" type="submit" name="action" value="Comprar">
 			<input id="borrar" type="submit" name="action" value="Borrar Carrito">
 		</form>
+		<?php endif; ?>
 	</div>
 
 	<footer>

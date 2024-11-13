@@ -7,6 +7,8 @@
 	$stock = $_REQUEST['stock'];
 	if (isset($_REQUEST['aviso_stock']))
 		$aviso_stock = $_REQUEST['aviso_stock'];
+	else
+		$aviso_stock = null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
