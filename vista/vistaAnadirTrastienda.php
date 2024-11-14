@@ -1,4 +1,9 @@
+<?php 
+    if(isset($_REQUEST["mensaje"])){
+        $mensaje=$_REQUEST["mensaje"];
+    }
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +24,11 @@
         <label for="stock">Stock</label>
         <input type="stock" name="stock">
         <button type="submit" name="action" value="guardar" id="boton">Añadir producto</button>
+        <?php 
+            if(isset($_REQUEST["mensaje"])){
+                print "<p>$mensaje</p>";
+            }
+        ?>
     </form>
 </body>
 </html>
