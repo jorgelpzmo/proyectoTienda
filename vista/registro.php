@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Registro</title>
-</head>
-<body>
-<h1>¡Rellena el formulario para registrate!</h1>
 <?php
-// NO HAY QUE INICIALIZARLAS
 $aviso = "";
 
 if (isset($_REQUEST['aviso'])) {
@@ -15,31 +6,41 @@ if (isset($_REQUEST['aviso'])) {
 }
 
 ?>
-<form action="../controlador/controlRegistro.php" method="post">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+  <link rel="shortcut icon" href="https://www.montanacolors.com/favicon.ico">
+	<link rel="stylesheet" href="css/registro.css">
+</head>
+<body>
+  <div id="main">
+    <h1>Registro</h1>
+    <form action="../controlador/controlRegistro.php" method="post">
 
-  <label>Introduce tu nombre: </label>
-  <input type="text" id="nombre" name="nombre"> <!--required-->
+      <div class="grupo">
+        <input placeholder="Nombre" type="text" id="nombre" name="nombre">
 
-  <label>Introduce tu apellido: </label>
-  <input type="text" id="apellido" name="apellido"> <!--required-->
+        <input placeholder="Apellido" type="text" id="apellido" name="apellido">
+      </div>
 
-  <label>Introduce un nickname: </label>
-  <input type="text" id="nickname" name="nickname"> <!--required-->
+      <div class="grupo">
+        <input placeholder="Teléfono" type="text" id="telefono" name="telefono">
 
-  <label>Introduce una contraseña : </label>
-  <input type="password" id="contra" name="contra"> <!--required-->
+        <input placeholder="Domicilio" type="text" id="domicilio" name="domicilio">
+      </div> 
 
-  <label>Introduce tu telefono: </label>
-  <input type="text" id="telefono" name="telefono"> <!--required -->
+      <div class="grupo">
+        <input placeholder="Nombre de Usuario" type="text" id="nickname" name="nickname">
 
-  <label>Introduce tu domicilio: </label>
-  <input type="text" id="domicilio" name="domicilio"> <!--required-->
+        <input  placeholder="Contraseña" type="password" id="contra" name="contra">
+      </div>
 
-  <input type="submit" value="Enviar">
+      <input type="submit" value="Registrarse">
 
-</form>
-
-<p><?= $aviso ?></p>
-
+    </form>
+    <p id="aviso"><?= $aviso ?></p>
+</div>
 </body>
 </html>
