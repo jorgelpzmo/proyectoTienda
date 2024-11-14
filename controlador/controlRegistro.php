@@ -17,11 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $hayError = false;
 
-    // Validamos si cada campo está vacío
-    if (empty($nombre)) {
-        $aviso = "Todos los campos son obligatorios.";
-        $hayError = true;
-    } else if (empty($apellido)) {
+    // Validamos si cada campo está vacío ESTO SE PUEDE JUNTAR EN UNA SOLA CONDICION, TE PONGO UN EJEMPLO EN LA PRIMERA
+    if (empty($nombre) || empty($apellido)) {
         $aviso = "Todos los campos son obligatorios.";
         $hayError = true;
     } else if (empty($nickname)) {
