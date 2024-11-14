@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $patronUsuario = "/^\w{3,20}$/";
     $patronContra = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,20}$/";
-    $patronNomYApe = "/^[a-zA-Z]{1,20}$/";
+    $patronNomYApe = "/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]{1,20}$/u";
     $patronTelefono = "/^[0-9]{9}$/";
 
     if (!preg_match($patronNomYApe, $nombre)) {

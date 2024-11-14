@@ -11,7 +11,7 @@ if (isset($_REQUEST['aviso'])) {
     $aviso = $_REQUEST['aviso'];
 }
 
-print_r($_SESSION);
+/*print_r($_SESSION);*/
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -52,7 +52,10 @@ print_r($_SESSION);
     </tr>
     <tr>
         <td colspan="3" style="text-align: center;">
-            <a href="logout.php" class="action-btn logout-btn">Cerrar Sesión</a>
+            <form action="../controlador/controlCierreSesion.php" method="POST" target="hidden_iframe">
+                <button type="submit" class="action-btn logout-btn">Cerrar Sesión</button>
+            </form>
+            <!--<a href=" ../controlador/controlCierreSesion.php" class="action-btn logout-btn">Cerrar Sesión</a>-->
         </td>
     </tr>
     <tr>

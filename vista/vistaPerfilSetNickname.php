@@ -1,3 +1,11 @@
+<?php
+$aviso = "";
+
+if (isset($_REQUEST['aviso'])) {
+    $aviso = $_REQUEST['aviso'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,8 +22,9 @@
         <td>
             <form action="../controlador/controlPerfil.php" method="POST">
                 <label for="nuevo_nickname">Nuevo Nickname:</label>
-                <input type="text" id="nuevo_nickname" name="nuevo_nickname" required minlength="3" maxlength="20">
+                <input type="text" id="nuevo_nickname" name="nuevo_nickname">
                 <br><br>
+                <p><?= $aviso ?></p>
                 <button type="submit" name="accion" value="cambiar_nickname" class="action-btn">Guardar Cambios</button>
             </form>
         </td>
