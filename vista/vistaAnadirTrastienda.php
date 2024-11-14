@@ -24,6 +24,7 @@
         <label for="stock">Stock</label>
         <input type="stock" name="stock">
         <button type="submit" name="action" value="guardar" id="boton">Añadir producto</button>
+        <button type="submit" name="action" value="volver" id="boton">Volver</button>
         <?php 
             if(isset($_REQUEST["mensaje"])){
                 print "<p>$mensaje</p>";
