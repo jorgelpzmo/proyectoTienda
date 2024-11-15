@@ -6,7 +6,6 @@
 	session_start();
 	$usuario_id = $_SESSION['id'];
 	session_write_close();
-	//$usuario_id = 1;
 	
 	
 	session_name('carrito');

@@ -68,7 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $nuevoUsuario = new DTOusuario(" ", $nombre, $apellido, $nickname, $contra, $telefono, $domicilio);
+    $contraCifrada = hash("sha256", $contra);
+    $nuevoUsuario = new DTOusuario(" ", $nombre, $apellido, $nickname, $contraCifrada, $telefono, $domicilio);
 
     if ($controlRegistro->nuevoUsuario($nuevoUsuario)) {
         header("location: ../vista/login.php?aviso=$aviso");

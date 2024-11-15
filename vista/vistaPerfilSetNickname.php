@@ -11,27 +11,20 @@ if (isset($_REQUEST['aviso'])) {
 <head>
     <meta charset="UTF-8">
     <title>Cambiar Nickname</title>
-    <link href="css/usuario.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://www.montanacolors.com/favicon.ico">
+    <link href="css/cambioUsuario.css" rel="stylesheet">
 </head>
 <body>
 
-<h2>Cambiar Nickname</h2>
-
-<table>
-    <tr>
-        <td>
-            <form action="../controlador/controlPerfil.php" method="POST">
-                <label for="nuevo_nickname">Nuevo Nickname:</label>
-                <input type="text" id="nuevo_nickname" name="nuevo_nickname">
-                <br><br>
-                <p><?= $aviso ?></p>
-                <button type="submit" name="accion" value="cambiar_nickname" class="action-btn">Guardar Cambios</button>
-            </form>
-        </td>
-    </tr>
-</table>
-
-<a href="usuario.php" class="action-btn">Volver a Gestión de Usuario</a>
+    <div id="main">
+        <h2>Cambiar Nombre de Usuario</h2>
+        <form action="../controlador/controlPerfil.php" method="POST">
+            <input placeholder="Nuevo Nombre de Usuario" type="text" id="nuevo_nickname" name="nuevo_nickname">
+            <button type="submit" name="accion" value="cambiar_nickname" class="action-btn">Guardar Cambios</button>
+            <p><?= $aviso ?></p>
+        </form>
+        <a href="usuario.php" class="action-btn">Volver a Gestión de Usuario</a>
+    </div>
 
 </body>
 </html>

@@ -50,14 +50,9 @@ INSERT INTO productos (nombre, descripcion, precio, imagen, stock) VALUES
     ("NITRO 2G", "Lata de pintura acrilica en spray de 400ml, presión alta y una formula ideal para cubrir pigmentos complicados", 4.95, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/nitro2g-400232.jpg",  500),
     ("POCKET", "Lata de pintura acrilica en spray de tamaño reducido", 5.85, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/montana-colors-aerosol-pintura-formato-pocket876.jpg",  500),
     ("MICRO", "Lata de pintura acrilica en spray de tamaño extra reducido", 5.25, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/micro527.jpg",  500),
+    ('PINTURA ANTI-CORROSIÓN', 'Imprimado de resistencia extrema con propiedades antioxidantes', 7.65, 'https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/mtnpro-anticorrosive-green120.jpg', 135),
     ("WALKING LOGO SWEATSHIRT", "Sudadera con Walking Logo", 58.65, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/mtn-sudadera-walking-1585.jpg",  150),
     ("HANDSTYLE SWEATSHIRT", "Sudadera con Logo tipo hanstyle", 58.65, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/mtn-sudadera-handstyle156.jpg",  150),
     ("HARDCORE 25TH SWEATSHIRT", "Sudadera edición limitada 25 aniversario", 78.65, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/montana-colors-spray-pintura-sudadera-hardcore673.jpg",  25),
     ("WALKING LOGO T-SHIRT", "Camiseta con Walking Logo", 29.00, "https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/mtnwalkinglogo943.jpg",  350),
-    ('PINTURA ANTI-CORROSIÓN', 'Imprimado de resistencia extrema con propiedades antioxidantes', 7.65, 'https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/mtnpro-anticorrosive-green120.jpg', 135),
     ('MTN T-SHIRT SPORT TEAM VOL.2', 'Camiseta del equipo MTN 100% poliester', 35.90, 'https://www.montanacolors.com/content/thumbs/1024/content/imgsxml/productos/mtnt-shirtsportteamvol2-2935.jpg', 105);
--- Usuarios:
-INSERT INTO usuarios (nombre, apellido, nickname, password, telefono, domicilio) VALUES
-    ("Fabio", "Rama", "Fabio7", "Contrasena7", "777777777", "Gran via"),
-    ("Jorge", "YouKnow", "Jorge8", "Contrasena8", "888888888", "Callao"),
-    ("Nico", "Buquet", "Nico9", "Contrasena9", "999999999", "Atocha");

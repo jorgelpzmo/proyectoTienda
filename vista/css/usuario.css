@@ -58,6 +58,7 @@ p {
 
 a {
     width: 20%;
+    height: fit-content;
     margin-left: auto;
     text-decoration: none;
     color: white;

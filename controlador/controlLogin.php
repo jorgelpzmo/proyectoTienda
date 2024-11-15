@@ -17,11 +17,12 @@ if (empty($loginUsuario) || empty($passwordUsuario)) {
     exit;
 }
 
+$contraCifrada = hash("sha256", $passwordUsuario);
 $controlUsuario = new ControlUsuario();
-$usuario = $controlUsuario->comprobarUsuario($loginUsuario, $passwordUsuario);
+$usuario = $controlUsuario->comprobarUsuario($loginUsuario, $contraCifrada);
 
 if ($controlUsuario->comprobarNickname($loginUsuario)) {
-    if ($controlUsuario->comprobarPassword($passwordUsuario)) {
+    if ($controlUsuario->comprobarPassword($contraCifrada)) {
         if ($usuario) {
             $_SESSION['id'] = $usuario->getId();
             $_SESSION['nombre'] = $usuario->getNombre();

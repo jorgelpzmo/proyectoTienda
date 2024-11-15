@@ -145,7 +145,6 @@ h1{
     justify-content: center;
     margin-top: 1vh;
     margin-left: 30vw;
-    height: 70vh;
     width: 40vw;
     padding: 25px;
     border: 1px solid black;
@@ -168,11 +167,9 @@ label{
 }
 
 input{
-    height: 20vh;
     border: 3px solid black;
 }
 #boton{
-    height: 30vh;
     min-height: 3vh;
     border-radius: 0;
     background-color: white;
