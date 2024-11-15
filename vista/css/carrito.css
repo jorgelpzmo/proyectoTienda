@@ -255,6 +255,14 @@ header a {
 	background-color: #ea2c1d;
 }
 
+aviso {
+	font-size: 20px;
+	font-weight: bold;
+	color: #ea2c1d;
+	text-align: center;
+	margin-top: 20vh;
+}
+
 
 /* PIE DE PÁGINA */	
 footer {

@@ -20,7 +20,7 @@ if (isset($_POST['accion'])) {
         case 'cambiar_nickname':
             $nuevo_nickname = $_POST['nuevo_nickname'];
             if (!preg_match($patronUsuario, $nuevo_nickname)) {
-                $aviso = "El nickname solo puede contener caracteres alfanuméricos con un mínimo de 3 y máximo 20 caracteres.";
+                $aviso = "El nombre de usuario solo puede contener caracteres alfanuméricos con un mínimo de 3 y máximo 20 caracteres.";
                 header("location: ../vista/vistaPerfilSetNickname.php?aviso=$aviso");
                 exit;
             }
@@ -34,7 +34,8 @@ if (isset($_POST['accion'])) {
                 header("location: ../vista/vistaPerfilSetPassword.php?aviso=$aviso");
                 exit;
             }
-            $controlUsuario->actualizarPassword($nueva_password, $id);
+            $contraCifrada = hash("sha256", $nueva_password);
+            $controlUsuario->actualizarPassword($contraCifrada, $id);
             $aviso = "Password cambiado correctamente";
             break;
         case 'cambiar_telefono':

@@ -67,7 +67,16 @@
 			<input id="borrar" type="submit" name="action" value="Borrar Carrito">
 		</form>
 		<?php endif; ?>
+		<?php if (!isset($_SESSION['productos'])) {
+			$aviso = "El carrito esta vacío, introduce algún producto en el carrito para poder comprarlo.";
+		} else {
+			$aviso = "";
+		}
+		?>
+		<aviso><?= $aviso ?></aviso>
 	</div>
+	
+
 
 	<footer>
 		<section id="social">
