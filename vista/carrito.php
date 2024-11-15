@@ -68,7 +68,7 @@
 		</form>
 		<?php endif; ?>
 		<?php if (!isset($_SESSION['productos'])) {
-			$aviso = "El carrito esta vacío, introduce algún producto en el carrito para poder comprarlo.";
+			$aviso = "El carrito esta vacío, introduce algún producto para poder comprarlo.";
 		} else {
 			$aviso = "";
 		}
