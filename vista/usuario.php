@@ -18,6 +18,7 @@ if (isset($_REQUEST['aviso'])) {
 <head>
     <meta charset="UTF-8">
     <title>Gestión de Usuario</title>
+    <link rel="shortcut icon" href="https://www.montanacolors.com/favicon.ico">
     <link href="css/usuario.css" rel="stylesheet">
 </head>
 <body>
