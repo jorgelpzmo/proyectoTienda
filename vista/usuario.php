@@ -22,49 +22,25 @@ if (isset($_REQUEST['aviso'])) {
     <link href="css/usuario.css" rel="stylesheet">
 </head>
 <body>
-
-<h2 style="text-align: center;">Gestión de Usuario</h2>
-
-<table>
-    <tr>
-        <th>Acción</th>
-        <th>Descripción</th>
-        <th>Modificar</th>
-    </tr>
-    <tr>
-        <td>Cambiar Nickname</td>
-        <td>Modifica tu nombre de usuario</td>
-        <td><a href="vistaPerfilSetNickname.php" class="action-btn">Cambiar Nickname</a></td>
-    </tr>
-    <tr>
-        <td>Cambiar Contraseña</td>
-        <td>Actualiza tu contraseña</td>
-        <td><a href="vistaPerfilSetPassword.php" class="action-btn">Cambiar Contraseña</a></td>
-    </tr>
-    <tr>
-        <td>Cambiar Teléfono</td>
-        <td>¿Cambiaste de número de teléfono?, actualiza tu número de teléfono</td>
-        <td><a href="vistaPerfilSetTelefono.php" class="action-btn">Cambiar Teléfono</a></td>
-    </tr>
-    <tr>
-        <td>Cambiar Domicilio</td>
-        <td>¿Cambiaste de residencia?, modifica tu dirección para envíos precisos</td>
-        <td><a href="vistaPerfilSetDomicilio.php" class="action-btn">Cambiar Domicilio</a></td>
-    </tr>
-    <tr>
-        <td colspan="3" style="text-align: center;">
-            <form action="../controlador/controlCierreSesion.php" method="POST" target="hidden_iframe">
-                <button type="submit" class="action-btn logout-btn">Cerrar Sesión</button>
-            </form>
-            <!--<a href=" ../controlador/controlCierreSesion.php" class="action-btn logout-btn">Cerrar Sesión</a>-->
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3" style="text-align: center;">
-            <p>Confirmación de altualización: <?= $aviso ?></p>   <!--Lanzar un aviso-->
-        </td>
-    </tr>
-</table>
+    <div id="main">
+        <h2 style="text-align: center;">Usuario</h2>
+        <div class="grupo">
+            <p>Nombre de usuario: <?= $_SESSION['nickname'] ?></p>
+            <a href="vistaPerfilSetNickname.php" class="action-btn" id="userbttn">Cambiar Nickname</a>
+            <a href="vistaPerfilSetPassword.php" class="action-btn" id="contrbttn">Cambiar Contraseña</a> 
+        </div>
+        <div class="grupo">
+            <p>Teléfono: <?= $_SESSION['telefono'] ?></p>
+            <a href="vistaPerfilSetTelefono.php" class="action-btn">Cambiar Teléfono</a>
+        </div>
+        <div class="grupo">
+            <p>Domicilio: <?= $_SESSION['domicilio'] ?></p>
+            <a href="vistaPerfilSetDomicilio.php" class="action-btn">Cambiar Domicilio</a>
+        </div>
+        <form action="../controlador/controlCierreSesion.php" method="POST">
+            <input id="cerrar" type="submit" value="Cerrar Sesión">
+        </form>
+    </div>
 
 </body>
 </html>
