@@ -71,7 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nuevoUsuario = new DTOusuario(" ", $nombre, $apellido, $nickname, $contra, $telefono, $domicilio);
 
     if ($controlRegistro->nuevoUsuario($nuevoUsuario)) {
-        $aviso = "Ya has creado tu usuario, inicia sesión";
         header("location: ../vista/login.php?aviso=$aviso");
     }
 

@@ -2,12 +2,12 @@
 	require 'controlCompra.php';
 	require 'ControlProducto.php';
 
-	// Cuando Fabio suba Usuario
 	/*session_name('usuario');
 	session_start();
 	$usuario_id = $_SESSION['id'];
 	session_write_close();*/
 	$usuario_id = 1;
+	
 	
 	session_name('carrito');
 	session_start();
