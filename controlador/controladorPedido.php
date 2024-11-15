@@ -6,13 +6,31 @@ require_once "../modelo/DTOProducto.php";
 session_name("sesion_pedido");
 session_start();
 
+$mensaje="";
+
+if(!isset($_REQUEST["id"])|| empty($_REQUEST["id"])){
+    $mensaje = "Campo id vacio";
+    header("Location: ../vista/vistaPedido.php?mensaje=$mensaje");
+    exit;
+}
+
+if(!isset($_REQUEST["cantidad"]) || empty($_REQUEST["cantidad"])){
+    $mensaje = "Campo cantidad vacio";
+    header("Location: ../vista/vistaPedido.php?mensaje=$mensaje");
+    exit;
+}
+
+
 $id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : null;
 $cantidad = isset($_REQUEST["cantidad"]) ? $_REQUEST["cantidad"] : null;
+
+
+
 
 $control_producto=new ControlProducto();
 $producto = $control_producto->getProducto($id);
 
-var_dump( $producto );
+
 
 //HE CREADO PRIMERO UN BUCLE QUE RECORRE LA SESION PRODUCTO, PARA VER SI YA SE HABIA AÑADIDO ESE PRODUCTO, PARA EN VEZ DE CREAR 2 ENTRADAS DEL MISMO QUE SE ACTUALICE EL STOCK. DESPUES, NO NECESITAS SESION CANTIDAD, YA EN EL PRODUCTO, CUANDO LO INTRODUCES, LITERALMENTE ESTABAS ACTUALIZANDO EL STOCK. LO UNICO QUE TENDRIAS QUE HACER ES UNA VEZ HECHO ESTO, ACTUALIZAR EL STOCK POR EL NUEVO EN LA BASE DE DATOS, LO QUE HACIAS EN AÑADIR, ERA VOLVER A SUMARSELO 2 VECES O ALGO ASI, PAR HACER LO QUE TE DIGO HE HECHO EL METODO REPONER EN CONTROL PRODUCTO, QUE LO QUE HACE BASICAMENTE ES SETEAR EL STOCK AL STOCK QUE TENGA EL OBJETO QUE LE PASAS POR PARAMETRO. BASICAMENTE LO HACIAS BIEN PERO HACIAS COMO 10 COSAS DE MAS.
 

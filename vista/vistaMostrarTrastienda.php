@@ -10,7 +10,8 @@ $productos = $control_producto->getAllProductos();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="https://www.montanacolors.com/favicon.ico">
+    <title>Trastienda</title>
     <link rel="stylesheet" href="css/trastienda.css">
 </head>
 <body>

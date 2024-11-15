@@ -201,6 +201,7 @@ td{
 img{
     height:80%;
     width: 20%;
+    object-fit: contain;
 }
 #eliminar{
     width: 4vw;

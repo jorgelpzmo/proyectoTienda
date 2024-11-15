@@ -12,7 +12,8 @@ if (isset($_REQUEST["mensaje"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="https://www.montanacolors.com/favicon.ico">
+    <title>Pedido</title>
     <link rel="stylesheet" href="css/nuevo-pedido.css">
 </head>
 <body>
@@ -42,12 +43,18 @@ if (isset($_REQUEST["mensaje"])){
     if(isset($mensaje)){
         if($mensaje=="Añada producto antes de pedir"){
         print "<form action=\"../controlador/peticionAnadirTrastienda.php\" method=\"post\">";
-        print "<label>$mensaje</label>";
+        print "<label id=\"alerta\">$mensaje</label>";
         print "<button type=\"submit\" name=\"action\" value=\"anadir\" id=\"anadir\">Añadir producto</button>";
         print "</form>";
         }
         if($mensaje=="No hay productos en tu pedido"){
-            print "<p>$mensaje</p>";
+            print "<p id=\"alerta\">$mensaje</p>";
+        }
+        if($mensaje== "Campo id vacio"){
+            print "<p id=\"alerta\">$mensaje</p>";
+        }
+        if($mensaje== "Campo cantidad vacio"){
+            print "<p id=\"alerta\">$mensaje</p>";
         }
     }
     ?>
