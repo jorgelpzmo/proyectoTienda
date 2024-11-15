@@ -11,6 +11,7 @@ if (isset($_REQUEST['aviso'])) {
     $aviso = $_REQUEST['aviso'];
 }
 
+/*print_r($_SESSION);*/
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -37,7 +38,9 @@ if (isset($_REQUEST['aviso'])) {
             <p>Domicilio: <?= $_SESSION['domicilio'] ?></p>
             <a href="vistaPerfilSetDomicilio.php" class="action-btn">Cambiar Domicilio</a>
         </div>
-        <a href="logout.php" class="action-btn logout-btn">Cerrar Sesión</a>
+        <form action="../controlador/controlCierreSesion.php" method="POST" target="hidden_iframe">
+            <button type="submit" class="action-btn logout-btn">Cerrar Sesión</button>
+        </form>
     </div>
 </table>
 

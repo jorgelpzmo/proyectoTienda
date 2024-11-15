@@ -9,6 +9,11 @@ $stock=$_REQUEST["stock"];
 $mensaje="";
 $correcto=true;
 
+if($_REQUEST["action"]=="volver"){
+    header("Location: ../vista/vistaMostrarTrastienda.php");
+    exit;
+}
+
 if($nombre== ""){
     $correcto=false;
     $mensaje="El campo nombre esta vacio";

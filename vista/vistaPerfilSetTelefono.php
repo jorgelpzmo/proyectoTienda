@@ -1,3 +1,11 @@
+<?php
+$aviso = "";
+
+if (isset($_REQUEST['aviso'])) {
+    $aviso = $_REQUEST['aviso'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,8 +22,9 @@
         <td>
             <form action="../controlador/controlPerfil.php" method="POST">
                 <label for="nuevo_telefono">Nuevo Teléfono:</label>
-                <input type="tel" id="nuevo_telefono" name="nuevo_telefono" pattern="\d{9}" title="El teléfono debe tener 9 dígitos" required>
+                <input type="tel" id="nuevo_telefono" name="nuevo_telefono" >
                 <br><br>
+                <p><?= $aviso ?></p>
                 <button type="submit" name="accion" value="cambiar_telefono" class="action-btn">Guardar Cambios</button>
             </form>
         </td>

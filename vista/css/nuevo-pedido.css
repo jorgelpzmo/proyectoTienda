@@ -133,46 +133,113 @@ header a {
 }
 
 #contenedor{
-    margin-top:10vh;
+    margin-top: 12vh;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: 1vw;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 1vh;
-    padding-right: 1.5vw;
-    
-    
+    width: 50%;
+    flex-direction: column;
+    margin-left: 3vw;
 }
+#formulario{
+    display: flex;
+    flex-direction: column;
 
-#boton{
-    height: 7vh;
+}
+label{
+    font-weight: bold;
+}
+input{
+    width: 50%;
+    margin: 5px;
+    height: 4vh;
+}
+#mas{
+    width: 25%;
+    height: auto;
+    min-height: 5vh;
+    margin-left: 5px;
     border-radius: 0;
     background-color: white;
-    width: 10vw;
     font-weight: bold;
     cursor: pointer;
     overflow: hidden;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
     
-    
-    
 }
-#boton:hover{
-    background-color: #59a4f4;
+#mas:hover{
+    background-color: black;
     color: white;
     transform: scale(1.1);
+}
 
-    
+#anadir{
+    width: 25%;
+    height: 1vh;
+    min-height: 3vh;
+    margin-left: 5px;
+    border-radius: 0;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
 }
-body{
-background-color: white;
+#anadir:hover{
+    background-color: #59a4f4;
+    color: white;
 }
+#confirmar{
+    width: 25%;
+    height: 1vh;
+    min-height: 7vh;
+    margin-left: 5px;
+    border-radius: 0;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#confirmar:hover{
+    background-color: #00da2f;
+    color: white;
+    transform: scale(1.1);
+}
+
+#cancelar{
+    width: 25%;
+    height: 1vh;
+    min-height: 7vh;
+    margin-left: 5px;
+    border-radius: 0;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#cancelar:hover{
+    background-color: #ea2c1d;
+    color: white;
+    transform: scale(1.1);
+}
+
+#contenedor-botones{
+    margin-top: 2vh;
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    margin-left: 3vw;
+}
+
 #contenedor-tabla{
+    margin-left: 1.75vw;
+    margin-top: 3vh;
     height: auto;
     min-height: 100vh;
-    width: 98.5%;
+    width: 90%;
     padding-left: 25px;
     display: flex;
     align-items: flex-start;
@@ -195,45 +262,7 @@ td{
     border: 0.5px solid black;
     text-align: center;
     font-weight: bold;
+    height: 10vh;
+    min-height: 10vh;
     
-}
-
-img{
-    height:80%;
-    width: 20%;
-}
-#eliminar{
-    width: 4vw;
-    height: 4vh;
-    background-color: #ea2c1d;
-    cursor: pointer;
-    border-radius: none;
-    margin: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    font-weight: bold;
-}
-#editar{
-    width: 4vw;
-    height: 4vh;
-    background-color: #2bf32b;
-    cursor: pointer;
-    border-radius: none;
-    margin: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    font-weight: bold;
-
-}
-
-#eliminar:hover{
-    transform: scale(1.1);
-    box-shadow: 0 0 10px #ea2c1d;
-
-}
-
-#editar:hover{
-    transform: scale(1.1);
-    box-shadow: 0 0 10px #2bf32b;
-
 }

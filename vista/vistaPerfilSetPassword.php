@@ -1,3 +1,11 @@
+<?php
+$aviso = "";
+
+if (isset($_REQUEST['aviso'])) {
+    $aviso = $_REQUEST['aviso'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,8 +22,9 @@
         <td>
             <form action="../controlador/controlPerfil.php" method="POST">
                 <label for="nueva_password">Nueva Contraseña:</label>
-                <input type="password" id="nueva_password" name="nueva_password" required minlength="6" maxlength="30">
+                <input type="password" id="nueva_password" name="nueva_password">
                 <br><br>
+                <p><?= $aviso ?></p>
                 <button type="submit" name="accion" value="cambiar_password" class="action-btn">Guardar Cambios</button>
             </form>
         </td>
