@@ -66,10 +66,27 @@ a {
     margin: 15px;
     transition: background-color 0.3 ease;
     text-align: center;
+    font-size: 15px;
+    font-weight: bold;
 }
 
-#ub a {
-    width: fit-content;
+a:hover {
+    background-color: #0a7bf5;
+	cursor: pointer;
+}
+
+#main>form {
+    width: 100%;
+    display: flex;
+    justify-content: center ;
+}
+
+#userbttn {
+    margin-left: 220px;
+}
+
+#cerrar {
+    width: 20%;
     margin-left: auto;
     text-decoration: none;
     color: white;
@@ -78,14 +95,12 @@ a {
     margin: 15px;
     transition: background-color 0.3 ease;
     text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    border: 0;
 }
 
-#ub a:hover {
+#cerrar:hover {
     background-color: #0a7bf5;
 	cursor: pointer;
-};
-
-a:hover {
-    background-color: #0a7bf5;
-	cursor: pointer;
-};
+}

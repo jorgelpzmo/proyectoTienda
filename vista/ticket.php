@@ -15,7 +15,7 @@
 <body>
 	<div id="ticket">
 		<p>TICKET</p>
-		<h4><?= "ID: " . $_SESSION['id'] ?></h4>
+		<h4><?= "ID: " . $_SESSION['id_compra'] ?></h4>
 		<?php for ($i = 0; $i < count($_SESSION['productos']); $i++):?>
 			<?php
 				$producto_id = $_SESSION['productos'][$i]->getId();
@@ -38,6 +38,7 @@
 		<?php endfor; ?>
 		<h2><?= "TOTAL: " . $_SESSION['total'] . "€" ?></h2>
 		<a href="index.php">Volver al Inicio</a>
+		<?php unset($_SESSION['productos'], $_SESSION['cantidades'], $_SESSION['total']) ?>
 	</div>
 </body>
 </html>

@@ -2,11 +2,11 @@
 	require 'controlCompra.php';
 	require 'ControlProducto.php';
 
-	/*session_name('usuario');
+	session_name('usuario');
 	session_start();
 	$usuario_id = $_SESSION['id'];
-	session_write_close();*/
-	$usuario_id = 1;
+	session_write_close();
+	//$usuario_id = 1;
 	
 	
 	session_name('carrito');
@@ -17,10 +17,10 @@
 	}
 
 	if ($_REQUEST['action'] == 'Comprar') {
-		if (!isset($_SESSION['id']))
-			$_SESSION['id'] = 1;
+		if (!isset($_SESSION['id_compra']))
+			$_SESSION['id_compra'] = 1;
 		else
-			$_SESSION['id']++;
+			$_SESSION['id_compra']++;
 
 		$control_compra = new ControlCompra();
 		$control_producto = new ControlProducto();
@@ -29,12 +29,10 @@
 			$producto_id = $productos[$i]->getId();
 			$cantidad = $cantidades[$i];
 			$fecha_compra = date("Y-m-d H:i:s");
-			$compra = new DTOCompra($usuario_id, $producto_id, $fecha_compra, $_SESSION['id'], $cantidad);
+			$compra = new DTOCompra($usuario_id, $producto_id, $fecha_compra, $_SESSION['id_compra'], $cantidad);
 			$control_compra->nuevaCompra($compra);
 			$control_producto->actualizarStock($productos[$i], $cantidad);
 		}
-		unset($_SESSION['productos'], $_SESSION['cantidades'], $_SESSION['total']);
-		header("Location:../vista/carrito.php");
 		header("Location:../vista/ticket.php");
 		exit;
 
